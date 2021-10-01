@@ -8,13 +8,13 @@ class Artifacts {
     public:
         std::string name = "";
 
-
         int hp = 0; // HP amount 
+        int maxHp = 0; // Amount to increase max hp by
+
         int shields = 0; // Shield Amount (Start round with x shields)
         int shieldGain = 0; // Gain of shield per usage
+
         int baseDmg = 0; // Base DMG ammount
-
-
         float critChance = 0; // Crit Chance, value between 0-1 
 
         int amount = 0; // Increment based on copies of items
@@ -42,17 +42,31 @@ class ExpiredMilk : public Artifacts {
 };
 
 // Artifact 3 - Increase Damage
-class Knife : public Artifacts {
+class Whetstone : public Artifacts {
     public:
-        std::string name = "Knife";
-        int baseDmg = 5 * amount;
+        std::string name = "Whetstone";
+        int baseDmg = 10 * amount;
 };
 
 // Artifact 4 - Increase Damage
-class Sword : public Artifacts {
+class RedGemStone : public Artifacts {
     public:
-        std::string name = "Sword";
-        int baseDmg = 10 * amount;
+        std::string name = "Red Gem Stone";
+        int baseDmg = 5 * amount;
+};
+
+// Artifact 5 - Increase Shield
+class BlueGemStone : public Artifacts {
+    public:
+        std::string name = "Red Gem Stone";
+        int shields = 5 * amount;
+};
+
+// Artifact 6 - Increase health
+class GreenGemStone : public Artifacts {
+    public:
+        std::string name = "Green Gem Stone";
+        int baseDmg = 5 * amount;
 };
 
 #endif
