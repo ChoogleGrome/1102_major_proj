@@ -13,7 +13,7 @@ class Enemy : public Entity {
         int xpDrop = 10; // Xp dropped per death
 
         int moveCounter = 0; // What move they are on, range between 0-moveNum
-        int *moveset; // Array of moves, 0 - attack, 1 - defend, 2 - hidden (chnace of either attack or defence)
+        int *moveset; // Array of moves, 0 - attack, 1 - defend, 2 - hidden (chace of either attack or defence)
         int moveNum; // Length of *moveset array
 
     public:

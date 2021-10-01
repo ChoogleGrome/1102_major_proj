@@ -4,7 +4,8 @@
 
 class Entity {
     private:
-        int hp; // HP amount
+        int hp; // max HP amount
+        int currentHp; //current hp amount
         int shields; // Shield Amount
         int shieldGain; // Gain of shield per usage
         int baseDmg; // Base DMG ammount
@@ -12,7 +13,8 @@ class Entity {
 
     public:  
         // Return Functions
-        int getHP();
+        int getHP(); // gets max hp
+        int getCurrentHp(); //returns current health
         int getShields();
         int getShieldGain();
         int getBaseDmg();
