@@ -18,7 +18,8 @@ class Player : public Entity {
 
         // Get functions
         Artifacts* getItems(); // Return array of items
-        int getXp(); // Level and XP
+        int getXp(); // XP
+        int getLevel(); // Levels
 
         // Update functions
         bool increseXp(int amount); // level up check within function
