@@ -26,27 +26,99 @@ class Berries : public Artifacts {
         int hp = 20 * amount; // ALWAYS MULTIPLY BY AMOUNT
 }; 
 
-// Artifact 1 - Increase max health
+//// Increase health items /////
+
+// Artifact 1
 class Herbs : public Artifacts {
     public:
         std::string name = "Herbs";
         int hp = 50 * amount;
 };
 
-// Artifact 2 - Reduce health increase base damage
-class ExpiredMilk : public Artifacts {
+// Artifact 2
+class GreenGemStone : public Artifacts {
     public:
-        std::string name = "Expired Milk";
-        int hp = -10 * amount;
-        int baseDmg = 10 * amount;
+        std::string name = "Green Gem Stone";
+        int baseDmg = 5 * amount;
 };
 
-// Artifact 3 - Increase Damage
+
+//// Increase max hp items ////
+
+// Artifact 1
+class StrangeElixir : public Artifacts {
+    public:
+        std::string name = "Strange Elixir";
+        int maxHp = 20 * amount;
+};
+
+
+//// Increase base damage items ////
+
+// Artifact 1
 class Whetstone : public Artifacts {
     public:
         std::string name = "Whetstone";
         int baseDmg = 10 * amount;
 };
+
+// Artifact 2
+class RedGemStone : public Artifacts {
+    public:
+        std::string name = "Red Gem Stone";
+        int baseDmg = 5 * amount;
+};
+
+// Artifact 3
+class HiddenBlade : public Artifacts {
+    public:
+        std::string name = "Hidden Blade";
+        int hp = 10 * amount;
+};
+
+
+//// Increase shield ////
+
+// Artifact 1
+class BlueGemStone : public Artifacts {
+    public:
+        std::string name = "Red Gem Stone";
+        int shields = 5 * amount;
+};
+
+
+//// Increase shield gains ////
+
+// Artifact 1
+class SpareBattery : public Artifacts {
+    public:
+        std::string name = "Spare Battery";
+        int shildGains = 10 * amount;
+};
+
+
+// Mixed Stats
+
+// Artifact 1 - Reduce health and increase base damage
+class ExpiredMilk : public Artifacts {
+    public:
+        std::string name = "Expired Milk";
+        int hp = -15 * amount;
+        int baseDmg = 10 * amount;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Artifact 4 - Increase Damage
 class RedGemStone : public Artifacts {
@@ -68,5 +140,4 @@ class GreenGemStone : public Artifacts {
         std::string name = "Green Gem Stone";
         int baseDmg = 5 * amount;
 };
-
 #endif
