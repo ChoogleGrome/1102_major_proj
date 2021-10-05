@@ -9,6 +9,7 @@
 class Player : public Entity {
     private:
         Artifacts *items; 
+        int NumItems;
         int xp; // every 100 xp level up
         int level; // start lvl 1
 

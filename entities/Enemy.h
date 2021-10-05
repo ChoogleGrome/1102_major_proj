@@ -5,7 +5,7 @@
 #include "Entitiy.h"
 #include "Player.h"
 
-class Enemy : public Entity {
+class Enemy :public Entity {
     private:
         int tierLevel = 0; // What tier level enemy starts showing, 0 - all, 1-3 - sepcific tiers 
         bool boss = false; // Is boss?
@@ -27,7 +27,7 @@ class Enemy : public Entity {
         bool defend();
 };
 
-// Example Enemy
+//Enemies
 class Grunt : public Enemy {
     int chance = 0.6;
     int xpDrop = 5;

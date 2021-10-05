@@ -26,12 +26,19 @@ int Enemy::showNextMove(){
 //gameplay functions for the enemy
 
 bool Enemy::attack(Player player){
+    int dirrectDmg;
+
+    if (player.shields - baseDmg < 0 ){
+        dirrectDmg = shields - baseDmg;
+        updateShieldAmount(-player.shields);
+    } 
+
+    updateHP(-dirrectDmg);
 
 }
 
 bool Enemy::defend(){
-
+    shields += shieldGain;
 }
-
 Enemy::~Enemy(){
 }

@@ -3,15 +3,16 @@
 #define ENTITY_H
 
 class Entity {
-    private:
+    protected:
+       
+
+    public:  
         int hp; // max HP amount
         int currentHp; //current hp amount
         int shields; // Shield Amount
         int shieldGain; // Gain of shield per usage
         int baseDmg; // Base DMG ammount
         float critChance; // Crit Chance, value between 0-1, IF crit is above 1, auto crit
-
-    public:  
         // Return Functions
         int getHP(); // gets max hp
         int getCurrentHp(); //returns current health
