@@ -116,28 +116,4 @@ class ExpiredMilk : public Artifacts {
 
 
 
-
-
-
-
-// Artifact 4 - Increase Damage
-class RedGemStone : public Artifacts {
-    public:
-        std::string name = "Red Gem Stone";
-        int baseDmg = 5 * amount;
-};
-
-// Artifact 5 - Increase Shield
-class BlueGemStone : public Artifacts {
-    public:
-        std::string name = "Red Gem Stone";
-        int shields = 5 * amount;
-};
-
-// Artifact 6 - Increase health
-class GreenGemStone : public Artifacts {
-    public:
-        std::string name = "Green Gem Stone";
-        int baseDmg = 5 * amount;
-};
 #endif

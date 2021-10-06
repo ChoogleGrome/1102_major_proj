@@ -2,6 +2,7 @@
 #include <string.h>
 #include "Entitiy.h"
 #include "Enemy.h"
+#include "Player.h"
 
 
 Enemy::Enemy(){
@@ -24,7 +25,7 @@ int Enemy::showNextMove(){
 }
 
 //gameplay functions for the enemy
-
+/*
 bool Enemy::attack(Player player){
     int dirrectDmg;
 
@@ -36,9 +37,10 @@ bool Enemy::attack(Player player){
     updateHP(-dirrectDmg);
 
 }
-
+*/
 bool Enemy::defend(){
     shields += shieldGain;
+    return true;
 }
 Enemy::~Enemy(){
 }

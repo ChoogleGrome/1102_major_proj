@@ -7,6 +7,7 @@
 
 class Enemy :public Entity {
     private:
+        Enemy();
         int tierLevel = 0; // What tier level enemy starts showing, 0 - all, 1-3 - sepcific tiers 
         bool boss = false; // Is boss?
         float chance = 0.2; // Chance of showing up
@@ -23,8 +24,9 @@ class Enemy :public Entity {
         int showNextMove();
 
         // Gameplay Functions
-        bool attack(Player player);
+        //bool attack(Player player);
         bool defend();
+        ~Enemy();
 };
 
 //Enemies

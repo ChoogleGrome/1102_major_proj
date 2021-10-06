@@ -32,33 +32,29 @@ float Entity::getCritChance(){
 }
 
 //Update Functions
-bool Entity::updateHP(int amount){
+void Entity::updateHP(int amount){
     currentHp += amount;
 }
 
-bool Entity::updateShields(int amount){
+void Entity::updateShields(int amount){
     shields += amount;
 }
 
-bool Entity::updateShieldAmount(int amount){
+void Entity::updateShieldAmount(int amount){
     shieldGain += amount;
 }
 
-bool Entity::updateBaseDmg(int amount){
+void Entity::updateBaseDmg(int amount){
     baseDmg += amount;
 }
 
-bool Entity::updateCritChance(int amount){
+void Entity::updateCritChance(int amount){
     critChance += amount;
 }
 
 //Shield Corrosion by 35 percent each turn
-bool Entity::shieldTurnCorrode(){
-    if (shields = 0){
-        return false;
-    }
-    shields = shields * 0.35;
-    return true;
+void Entity::shieldTurnCorrode(){
+    updateShieldAmount(shields * 0.35);
 }
 
 Entity::~Entity(){
