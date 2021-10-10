@@ -44,7 +44,7 @@ bool Player::addItem(Artifacts newItem){
     newItem = items[NumItems];
     return 0;
 }
-/*
+
 bool Player::attack(Enemy enemy){
     int dirrectDmg;
 
@@ -56,7 +56,7 @@ bool Player::attack(Enemy enemy){
     updateHP(-dirrectDmg);
     return 0;
 }
-*/
+
 bool Player::defend(){
     shields += shieldGain;
     return 0;

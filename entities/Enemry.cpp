@@ -25,7 +25,7 @@ int Enemy::showNextMove(){
 }
 
 //gameplay functions for the enemy
-/*
+
 bool Enemy::attack(Player player){
     int dirrectDmg;
 
@@ -37,9 +37,8 @@ bool Enemy::attack(Player player){
     updateHP(-dirrectDmg);
 
 }
-*/
-bool Enemy::defend(){
-    shields += shieldGain;
+bool Enemy::defend(Player player){
+    shields =  0.35 * player.baseDmg;
     return true;
 }
 Enemy::~Enemy(){

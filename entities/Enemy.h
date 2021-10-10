@@ -24,8 +24,8 @@ class Enemy :public Entity {
         int showNextMove();
 
         // Gameplay Functions
-        //bool attack(Player player);
-        bool defend();
+        bool attack(Player player);
+        bool defend(Player player);
         ~Enemy();
 };
 
