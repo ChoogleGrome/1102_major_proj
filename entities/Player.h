@@ -2,7 +2,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include "Entitiy.h"
+#include "Entity.h"
 #include "../artifacts/Artifacts.h"
 #include "Enemy.h"
 
