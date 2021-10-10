@@ -1,11 +1,22 @@
 game_test:
-	clang++ ./game/Game.cpp -o a
+	g++ ./game/Game.cpp -o a
 	./a
 
 entities_test:
-	clang++ ./entities/Entity.cpp ./entities/Player.cpp ./entities/Enemy.cpp -o a
+	g++ ./entities/Entitiy.cpp ./entities/Player.cpp ./entities/Enemry.cpp ./entities/test_entities.cpp -o a
+	./a
+
+player_test:
+	g++ ./entities/Entitiy.cpp ./entities/Player.cpp ./entities/test_entities.cpp -o a
+	./a
+
+enemy_test:
+	g++ ./entities/Entitiy.cpp ./entities/Enemy.cpp ./entities/test_entities.cpp -o a
 	./a
 
 main:
-	clang++ main.cpp ./entities/Entity.cpp ./entities/Player.cpp ./entities/Enemy.cpp ./game/Game.cpp -o a
+	g++ main.cpp ./entities/Entitiy.cpp ./entities/Player.cpp ./entities/Enemry.cpp ./game/Game.cpp -o a
 	./a
+
+clean:
+	rm a

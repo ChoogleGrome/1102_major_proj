@@ -9,10 +9,11 @@
 class Player : public Entity {
     private:
         Artifacts *items; 
+        int NumItems;
         int xp; // every 100 xp level up
         int level; // start lvl 1
 
-    private:
+    public:
         // Init
         Player();
 
@@ -22,12 +23,13 @@ class Player : public Entity {
         int getLevel(); // Levels
 
         // Update functions
-        bool increseXp(int amount); // level up check within function
+        void increseXp(int amount); // level up check within function
         bool addItem(Artifacts newItem); // Add item into array of items
 
         // Gameplay Functions
         bool attack(Enemy enemy);
         bool defend();
+        ~Player();
 };
 
 #endif
