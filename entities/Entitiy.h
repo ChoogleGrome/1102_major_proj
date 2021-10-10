@@ -33,8 +33,8 @@ class Entity {
         void shieldTurnCorrode();
 
         // Gameplay Functions - DO NOT CODE, STILL FIGURING OUT TYPES
-        virtual bool attack();
-        virtual bool defend();
+        //virtual bool attack();
+        //virtual bool defend();
         ~Entity();
 };
 
