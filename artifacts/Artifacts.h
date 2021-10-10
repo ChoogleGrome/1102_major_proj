@@ -97,7 +97,16 @@ class SpareBattery : public Artifacts {
 };
 
 
-// Mixed Stats
+//// Crit Chance Stats ////
+
+// Artifact 1
+class BookOnMonsters : public Artifacts {
+    public:
+        std::string name = "Book On Monsters";
+        int critChance = 0.05 * amount;
+};
+
+//// Mixed Stats ////
 
 // Artifact 1 - Reduce health and increase base damage
 class ExpiredMilk : public Artifacts {
@@ -107,37 +116,4 @@ class ExpiredMilk : public Artifacts {
         int baseDmg = 10 * amount;
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Artifact 4 - Increase Damage
-class RedGemStone : public Artifacts {
-    public:
-        std::string name = "Red Gem Stone";
-        int baseDmg = 5 * amount;
-};
-
-// Artifact 5 - Increase Shield
-class BlueGemStone : public Artifacts {
-    public:
-        std::string name = "Red Gem Stone";
-        int shields = 5 * amount;
-};
-
-// Artifact 6 - Increase health
-class GreenGemStone : public Artifacts {
-    public:
-        std::string name = "Green Gem Stone";
-        int baseDmg = 5 * amount;
-};
 #endif
