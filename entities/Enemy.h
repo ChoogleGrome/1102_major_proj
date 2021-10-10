@@ -2,7 +2,7 @@
 #ifndef ENEMY_H
 #define ENEMY_H
 
-#include "Entitiy.h"
+#include "Entity.h"
 #include "Player.h"
 
 class Enemy :public Entity {
