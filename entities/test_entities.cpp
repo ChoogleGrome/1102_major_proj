@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 //#include "../artifacts/Artifacts.h"
-#include "Entitiy.h"
+#include "Entity.h"
 //#include "Enemy.h"
 #include "Player.h"
 

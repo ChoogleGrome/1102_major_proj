@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string.h>
-#include "Entitiy.h"
+#include "Entity.h"
 #include "Player.h"
 #include "../artifacts/Artifacts.h"
 
