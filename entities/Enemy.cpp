@@ -43,7 +43,7 @@ Grunt::Grunt(int DimensionTier){
     hp = 25 * DimensionTier;
     currentHp = hp;
     shields = 0;
-    shieldGain = 2;
+    shieldGain = 0;
     baseDmg = 4 * DimensionTier;
     critChance = 0.1 * DimensionTier;
 }

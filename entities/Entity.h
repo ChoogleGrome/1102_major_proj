@@ -4,7 +4,6 @@
 
 class Entity {
     protected:
-       
 
     public: 
         Entity(); 

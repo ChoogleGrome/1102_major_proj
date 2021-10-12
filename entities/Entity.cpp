@@ -2,7 +2,7 @@
 #include <string.h>
 #include "Entity.h"
 #include <iostream>
-
+#include <math.h>
 Entity::Entity(){
 
 }
@@ -65,9 +65,14 @@ int Entity::shieldTurnCorrode(){
 }
 
 int Entity::damage() {
-    //int crit = rand() % 100;
-    //if (crit < (this->critChance * 100)) { return this->baseDmg * 1.5; } 
-    return this->baseDmg;
+    int crit = rand();
+    //std::cout << crit << "" << std::endl << std::endl;
+
+    if (crit >= (this->critChance)) { 
+        return floor(this->baseDmg * 1.5);
+    }
+
+    return floor(this->baseDmg);
 }
 
 bool Entity::hurt(int amount){
