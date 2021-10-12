@@ -30,31 +30,13 @@ int Enemy::showNextMove(){
 
 //gameplay functions for the enemy
 
-bool Enemy::attack(Player player){
-    int remainingDmg = 0;;
-    if (player.shields >= 0){
-        remainingDmg = player.shields - this->baseDmg;
-        
-        player.shields -= this->baseDmg;
-
-        if (remainingDmg < 0){
-            player.shields = 0;
-            player.currentHp -= abs(remainingDmg);
-        } 
-    }
-    return true;
-}
-
-bool Enemy::defend(Player player){
-    shields =  0.35 * player.baseDmg;
+bool Enemy::defend(){
+    shields =  0.35 * this->baseDmg;
     return true;
 }
 
 Enemy::~Enemy(){
 }
-
-
-
 
 Grunt::Grunt(int DimensionTier){
     hp = 25 * DimensionTier;
@@ -63,11 +45,6 @@ Grunt::Grunt(int DimensionTier){
     baseDmg = 4 * DimensionTier;
     critChance = 0.1 * DimensionTier;
 }
-
-Grunt::~Grunt(){
-    
-}
-
 
 Slime::Slime(int DimensionTier){
     hp = 30 * DimensionTier;

@@ -1,17 +1,17 @@
 game_test:
-	g++ ./game/Game.cpp -o a.out
+	clang++ ./game/Game.cpp -o a.out
 	./a.out
 
 entities_test:
-	g++ -std=c++11 ./entities/Entity.cpp ./entities/Player.cpp ./entities/Enemy.cpp ./entities/test_entities.cpp -o a.out
+	clang++ -std=c++11 ./entities/Entity.cpp ./entities/Player.cpp ./entities/Enemy.cpp ./entities/test_entities.cpp -o a.out
 	./a.out
 
 player_test:
-	g++ ./entities/Entity.cpp ./entities/Player.cpp ./entities/test_entities.cpp -o a.out
+	clang++ ./entities/Entity.cpp ./entities/Player.cpp ./entities/test_entities.cpp -o a.out
 	./a.out
 
 enemy_test:
-	g++ ./entities/Entity.cpp ./entities/Enemy.cpp ./entities/test_entities.cpp -o a.out
+	clang++ ./entities/Entity.cpp ./entities/Enemy.cpp ./entities/test_entities.cpp -o a.out
 	./a.out
 
 main:

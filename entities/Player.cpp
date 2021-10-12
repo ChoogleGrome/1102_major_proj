@@ -46,21 +46,6 @@ bool Player::addItem(Artifacts newItem){
 }
 
 
-bool Player::attack(Enemy enemy){
-    int remainingDmg = 0;;
-    if (enemy.shields >= 0){
-        remainingDmg = enemy.shields - this->baseDmg;
-        
-        enemy.shields -= this->baseDmg;
-
-        if (remainingDmg < 0){
-            enemy.shields = 0;
-            enemy.currentHp -= abs(remainingDmg);
-        } 
-    }
-
-    return true;
-}
 bool Player::defend(){
     shields += shieldGain;
     return 0;

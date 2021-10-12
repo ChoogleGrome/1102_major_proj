@@ -23,8 +23,7 @@ class Enemy :public Entity {
         int showNextMove();
 
         // Gameplay Functions
-        bool attack(Player player);
-        bool defend(Player player);
+        bool defend();
         ~Enemy();
 };
 
@@ -37,7 +36,6 @@ public:
 
     int moveset[3] = {0, 0, 1};
     int moveNum = 3;
-    ~Grunt();
 };
 
 class Slime : public Enemy {

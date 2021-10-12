@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string.h>
 #include "Entity.h"
+#include <iostream>
 
 Entity::Entity(){
 
@@ -61,6 +62,29 @@ int Entity::updateCritChance(int amount){
 int Entity::shieldTurnCorrode(){
     updateShieldAmount(shields * 0.35);
     return shields;
+}
+
+int Entity::damage() {
+    int crit = rand() % 100;
+    if (crit < (this->critChance * 100)) { return this->baseDmg * 1.5; } 
+    return this->baseDmg;
+}
+
+bool Entity::hurt(int amount){
+    int remainingDmg = this->shields - amount;
+
+    if (remainingDmg < 0) {
+        this->shields = 0;
+        this->currentHp -= abs(remainingDmg);
+    } else {
+        this->shields -= amount;
+    }
+
+    return true;
+}
+
+bool Entity::defend() {
+    return false;
 }
 
 Entity::~Entity(){

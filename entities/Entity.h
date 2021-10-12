@@ -21,6 +21,7 @@ class Entity {
         int getShieldGain();
         int getBaseDmg();
         float getCritChance();
+        int damage();
 
         // Update Functions
         int updateHP(int amount);
@@ -32,11 +33,9 @@ class Entity {
         // Shield Corrode Percentage 0.35 per turn
         int shieldTurnCorrode();
 
-        // Gameplay Functions - DO NOT CODE, STILL FIGURING OUT TYPES
-        bool attack();
-        bool defend();
-        //virtual bool attack();
-        //virtual bool defend();
+        // Gameplay Functions
+        bool hurt(int amount);
+        virtual bool defend();
         ~Entity();
 };
 

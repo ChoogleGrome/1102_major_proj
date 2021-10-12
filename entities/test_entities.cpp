@@ -65,10 +65,10 @@ int main()
 
     std::cout << std::endl << "Test enemy shields" << std::endl;
     std::cout << "Enemy shield: " << enemy.shields << std::endl; 
-    enemy.defend(player);
+    enemy.defend();
     std::cout << "Enemy shield: " << enemy.shields << std::endl; 
 
-    enemy.attack(player);
+    player.hurt(enemy.damage());
 
     std::cout << std::endl << std::endl;
     std::cout << "The player took: " << enemy.baseDmg << " damage" << std::endl;

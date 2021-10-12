@@ -28,7 +28,6 @@ class Player : public Entity {
         bool addItem(Artifacts newItem); // Add item into array of items
 
         // Gameplay Functions
-        bool attack(Enemy enemy);
         bool defend();
         ~Player();
 };
