@@ -7,9 +7,10 @@
 Enemy::Enemy(){
     hp = 0;
     currentHp = hp;
-    shields = 0;
     baseDmg = 0;
     critChance = 0;
+    shields = 0;
+    shieldGain = 0;
 }
 
 
@@ -31,8 +32,8 @@ int Enemy::showNextMove(){
 //gameplay functions for the enemy
 
 bool Enemy::defend(){
-    shields =  0.35 * this->baseDmg;
-    return true;
+    shields += shieldGain;
+    return 0;
 }
 
 Enemy::~Enemy(){
@@ -42,6 +43,7 @@ Grunt::Grunt(int DimensionTier){
     hp = 25 * DimensionTier;
     currentHp = hp;
     shields = 0;
+    shieldGain = 2;
     baseDmg = 4 * DimensionTier;
     critChance = 0.1 * DimensionTier;
 }

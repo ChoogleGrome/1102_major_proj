@@ -4,6 +4,7 @@
 #include "Entity.h"
 #include "Enemy.h"
 #include "Player.h"
+#include "stdlib.h"
 
 int main()
 {
@@ -30,7 +31,7 @@ int main()
 */
     // creating a basic enemy grunt
     Grunt enemy(1);
-
+/*
     std::cout << "Enemy Name Grunt" << std::endl;
     std::cout << "HP: " << enemy.hp << std::endl;
     std::cout << "Base Damage: " << enemy.baseDmg << std::endl;
@@ -76,6 +77,79 @@ int main()
     //Hp still remains the same
     std::cout << "Player Hp: " << player.getCurrentHp() << std::endl;
     std::cout << "Player Shield: " << player.getShields() << std::endl;
+*/
 
+
+
+    //Quick game test
+    int i = 0;
+
+    while (enemy.currentHp >= 0)
+    {
+        if (i == enemy.moveNum)
+        {
+            i = 0;
+        }
+
+        int userInput = 0;
+        std::string enemyMove;
+
+        std::cout << "Player Hp: " << player.currentHp << "\t\t\t" << "Enemy Hp: " << enemy.currentHp << std::endl;
+        std::cout << "Player Shield: " << player.shields << "\t\t" << "Enemy Shield: " << enemy.shields << std::endl;
+
+
+        if (enemy.moveset[i] == 0)
+        {
+            enemyMove = "Defend";
+        } else {
+            enemyMove = "Attack";
+        }
+        std::cout << "Enemy Next Move: " << enemyMove << std::endl;
+
+        std::cout << std::endl << "Press '1' to Attack" << std::endl << "Press '2' to Defend" << std::endl;
+        std::cin >> userInput;
+
+        /*
+        while (userInput != 1 || userInput != 2)
+        {
+            std::cout << "Invalid Input, try again" << std::endl;
+            std::cout << "Press '1' to Attack" << std::endl << "Press '2' to Defend" << std::endl;
+            std::cin >> userInput;
+        }
+        */
+
+       std::cout << std::endl << "PLAYER TURN" << std::endl << std::endl;
+
+        if (userInput == 1)
+        {
+            enemy.hurt(player.damage());
+            std::cout << "Enemy took " << player.damage() << " damage" << std::endl;
+        } else {
+            player.defend();
+            std::cout << "Player receives " << player.getShieldGain() << " shields" << std::endl;
+        }
+
+        std::cout << "Player Hp: " << player.getCurrentHp() << "\t\t\t" << "Enemy Hp: " << enemy.getCurrentHp() << std::endl;
+        std::cout << "Player Shield: " << player.getShields() << "\t\t" << "Enemy Shield: " << enemy.getShields() << std::endl;
+
+        std::cout << std::endl << "ENEMY TURN" << std::endl << std::endl;;
+
+        if (enemy.moveset[i] == 1)
+        {
+            player.hurt(enemy.damage());
+            std::cout << "Player took " << enemy.damage() << " damage" << std::endl;
+        } else {
+            enemy.defend();
+            std::cout << "Enemy receives " << enemy.getShieldGain() << " shields" << std::endl;
+        }
+
+        std::cout << "Player Hp: " << player.getCurrentHp() << "\t\t\t" << "Enemy Hp: " << enemy.getCurrentHp() << std::endl;
+        std::cout << "Player Shield: " << player.getShields() << "\t\t" << "Enemy Shield: " << enemy.getShields() << std::endl;
+
+        std::cout << std::endl << std::endl << std::endl << std::endl;
+
+        i++;
+    }
+    
     return 0;
 }
