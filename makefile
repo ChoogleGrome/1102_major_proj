@@ -3,7 +3,7 @@ game_test:
 	./a.out
 
 entities_test:
-	g++ ./entities/Entity.cpp ./entities/Player.cpp ./entities/Enemry.cpp ./entities/test_entities.cpp -o a.out
+	g++ ./entities/Entity.cpp ./entities/Player.cpp ./entities/Enemy.cpp ./entities/test_entities.cpp -o a.out
 	./a.out
 
 player_test:

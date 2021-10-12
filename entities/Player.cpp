@@ -45,18 +45,19 @@ bool Player::addItem(Artifacts newItem){
     return 0;
 }
 
-bool Player::attack(Enemy enemy){
+
+int Player::attack(Enemy enemy){
     int dirrectDmg;
-
-    if (enemy.shields - baseDmg < 0 ){
-        dirrectDmg = shields - baseDmg;
-        updateShieldAmount(-enemy.shields);
-    } 
-
-    updateHP(-dirrectDmg);
-    return 0;
+    if(enemy.shields > 0){
+        enemy.shields = this->baseDmg - enemy.shields;
+        if(this->baseDmg - enemy.shields <= 0){
+            dirrectDmg = enemy.shields;
+            enemy.shields = 0;
+        }
+        enemy.currentHp = enemy.currentHp - abs(dirrectDmg);
+    }
+    return enemy.shields;
 }
-
 bool Player::defend(){
     shields += shieldGain;
     return 0;
