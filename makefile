@@ -15,7 +15,7 @@ enemy_test:
 	./a.out
 
 main:
-	g++ main.cpp ./entities/Entity.cpp ./entities/Player.cpp ./entities/Enemy.cpp ./game/Game.cpp -o a.out
+	clang++ ./entities/Entity.cpp ./entities/Player.cpp ./entities/Enemy.cpp ./game/Game.cpp main.cpp -o a.out -lncurses
 	./a.out
 
 clean:
