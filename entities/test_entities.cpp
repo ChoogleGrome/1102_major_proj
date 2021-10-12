@@ -15,6 +15,7 @@ int main()
     player.shields = 0;
     player.shieldGain = 1;
 
+/*
 
     std::cout << "the Players base Damage is: " << player.getBaseDmg() << std::endl;
     std::cout << "the Players crit chance is: " << player.getCritChance()<< std::endl;
@@ -24,7 +25,7 @@ int main()
     std::cout << "the Players increase in sheilds  is: " << player.getShieldGain() << std::endl;
     std::cout << "the Players shields is: " << player.getShields() << std::endl;
     std::cout << "the Players xp is: " << player.getXp() << std::endl;
-
+*/
     // creating a basic enemy grunt
     Grunt a(1);
 
@@ -35,7 +36,7 @@ int main()
         std::cout << "" << a.moveset[i];
     }
     std::cout << std::endl;
-    std::cout << " This enmey is a" << a.isBoss() << std::endl;
+    std::cout << " This enmey is a : " << a.isBoss() << std::endl;
     std::cout << "The Grunt drops " << a.xpDrop << "Experience points" <<  std::endl;
 
     player.defend();
@@ -46,11 +47,14 @@ int main()
 
     std::cout << "The Grunts Shields are now: " << a.shields << std::endl; 
 
-    player.attack(a);
-    std::cout << "The Enemy took: " << player.baseDmg << "damage, it now has: " << a.shields << std::endl;
+    a.attack(player);
 
 
-    std::cout << "The Enemy took: " << player.baseDmg << "damage, it now has: " << a.currentHp << std::endl;
+
+    std::cout << "The player took: " << a.baseDmg << " damage, it now has: " << player.shields << " Shield/s" << std::endl;
+
+
+//    std::cout << "The player took: " << a.baseDmg << " damage, it now has: " << player.currentHp << "hp" << std::endl;
 
 
     return 0;

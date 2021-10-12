@@ -24,19 +24,18 @@ int Enemy::showNextMove(){
 }
 
 //gameplay functions for the enemy
-/*
-bool Enemy::attack(Player player){
-    int dirrectDmg;
 
-    if (player.shields - baseDmg < 0 ){
-        dirrectDmg = shields - baseDmg;
-        updateShieldAmount(-player.shields);
-    } 
-
-    updateHP(-dirrectDmg);
-    return 0;
+int Enemy::attack(Player player){
+    int currnetDmg;
+    if (player.shields > 0){
+        currnetDmg =this->baseDmg - player.shields;
+        std::cout << currnetDmg << std::endl;
+        player.shields -= currnetDmg;
+        std::cout << player.shields << std::endl;
+    }
+    return (player.shields);
 }
-*/
+
 bool Enemy::defend(Player player){
     shields =  0.35 * player.baseDmg;
     return true;
