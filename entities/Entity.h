@@ -23,14 +23,14 @@ class Entity {
         float getCritChance();
 
         // Update Functions
-        void updateHP(int amount);
-        void updateShields(int amount);
-        void updateShieldAmount(int amount);
-        void updateBaseDmg(int amount);
-        void updateCritChance(int amount);
+        int updateHP(int amount);
+        int updateShields(int amount);
+        int updateShieldAmount(int amount);
+        int updateBaseDmg(int amount);
+        int updateCritChance(int amount);
 
         // Shield Corrode Percentage 0.35 per turn
-        void shieldTurnCorrode();
+        int shieldTurnCorrode();
 
         // Gameplay Functions - DO NOT CODE, STILL FIGURING OUT TYPES
         //virtual bool attack();

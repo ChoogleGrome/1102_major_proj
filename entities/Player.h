@@ -6,13 +6,14 @@
 #include "../artifacts/Artifacts.h"
 #include "Enemy.h"
 
+struct Enemy;
+
 class Player : public Entity {
     private:
         Artifacts *items; 
         int NumItems;
         int xp; // every 100 xp level up
         int level; // start lvl 1
-
     public:
         // Init
         Player();
@@ -27,7 +28,7 @@ class Player : public Entity {
         bool addItem(Artifacts newItem); // Add item into array of items
 
         // Gameplay Functions
-        bool attack(Enemy enemy);
+        int attack(Enemy* enemy);
         bool defend();
         ~Player();
 };
