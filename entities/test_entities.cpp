@@ -9,12 +9,13 @@ int main()
 {
     //testing the Players functions
     Player player;
+    /*
     player.hp = 100;
     player.baseDmg = 3;
     player.critChance = 0.4;
     player.shields = 0;
     player.shieldGain = 1;
-
+    */
 /*
 
     std::cout << "the Players base Damage is: " << player.getBaseDmg() << std::endl;
@@ -25,37 +26,56 @@ int main()
     std::cout << "the Players increase in sheilds  is: " << player.getShieldGain() << std::endl;
     std::cout << "the Players shields is: " << player.getShields() << std::endl;
     std::cout << "the Players xp is: " << player.getXp() << std::endl;
+
 */
     // creating a basic enemy grunt
-    Grunt a(1);
+    Grunt enemy(1);
 
-    std::cout << "The Grunts HP is: " << a.hp << std::endl;
-    std::cout << "The Grunst Base Damage is:" << a.baseDmg << std::endl;
-    std::cout << "The Grunt crit chance is: " << a.critChance << std::endl;
-    for(int i = 0; i < a.moveNum; i++){
-        std::cout << "" << a.moveset[i];
+    std::cout << "Enemy Name Grunt" << std::endl;
+    std::cout << "HP: " << enemy.hp << std::endl;
+    std::cout << "Base Damage: " << enemy.baseDmg << std::endl;
+    std::cout << "Crit chance: " << enemy.critChance << std::endl;
+
+    //Loop to check the enemy moveset
+    std::cout << "Enemy Moveset" << std::endl;
+    for(int i = 0; i < enemy.moveNum; i++){
+        if (enemy.moveset[i] == 0)
+        {
+            std::cout << "Defend ";
+        } else {
+            std::cout << "Attack ";
+        }
     }
     std::cout << std::endl;
-    std::cout << " This enmey is a : " << a.isBoss() << std::endl;
-    std::cout << "The Grunt drops " << a.xpDrop << "Experience points" <<  std::endl;
 
+    //Check if anime is a boss
+    if (enemy.isBoss() == 0)
+    {
+        std::cout << "This enemy is a normal monster" << std::endl;
+    } else {
+        std::cout << "This enemy is a boss monster" << std::endl;
+    }
+    std::cout << "Total XP Drop: " << enemy.xpDrop << std::endl;
+
+    //Test combat
+    std::cout << std::endl << "Test player shields" << std::endl;
+    std::cout << "Player shield: " << player.getShields() << std::endl;
     player.defend();
+    std::cout << "Player shield: " << player.getShields() << std::endl;
 
-    std::cout << "The player now has :" << player.getShields() << " Sheild" << std::endl;
+    std::cout << std::endl << "Test enemy shields" << std::endl;
+    std::cout << "Enemy shield: " << enemy.shields << std::endl; 
+    enemy.defend(player);
+    std::cout << "Enemy shield: " << enemy.shields << std::endl; 
 
-    a.defend(player);
+    enemy.attack(player);
 
-    std::cout << "The Grunts Shields are now: " << a.shields << std::endl; 
+    std::cout << std::endl << std::endl;
+    std::cout << "The player took: " << enemy.baseDmg << " damage" << std::endl;
 
-    a.attack(player);
-
-
-
-    std::cout << "The player took: " << a.baseDmg << " damage, it now has: " << player.shields << " Shield/s" << std::endl;
-
-
-//    std::cout << "The player took: " << a.baseDmg << " damage, it now has: " << player.currentHp << "hp" << std::endl;
-
+    //Hp still remains the same
+    std::cout << "Player Hp: " << player.getCurrentHp() << std::endl;
+    std::cout << "Player Shield: " << player.getShields() << std::endl;
 
     return 0;
 }

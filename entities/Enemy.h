@@ -23,7 +23,7 @@ class Enemy :public Entity {
         int showNextMove();
 
         // Gameplay Functions
-        int attack(Player player);
+        bool attack(Player player);
         bool defend(Player player);
         ~Enemy();
 };
@@ -31,8 +31,8 @@ class Enemy :public Entity {
 //Enemies
 class Grunt : public Enemy {
 public:
-    Grunt(int DimensionTeir);
-    int chance = 0.6;
+    Grunt(int DimensionTier);
+    float chance = 0.6;
     int xpDrop = 5;
 
     int moveset[3] = {0, 0, 1};
@@ -42,8 +42,8 @@ public:
 
 class Slime : public Enemy {
 public:
-    Slime(int DimensionTeir);
-    int chance = 0.75;
+    Slime(int DimensionTier);
+    float chance = 0.75;
     int xpDrop = 8;
 
     int moveset[5] = {1, 0, 1, 1, 0};
@@ -53,8 +53,8 @@ public:
 
 class Assassin : public Enemy {
 public:
-    Assassin(int DimensionTeir);
-    int chance = 0.4;
+    Assassin(int DimensionTier);
+    float chance = 0.4;
     int xpDrop = 10;
 
     int moveset[4] = {2, 0, 2, 1};
@@ -64,8 +64,8 @@ public:
 
 class Theif : public Enemy {
 public:
-    Theif(int DimensionTeir);
-    int chance = 0.45;
+    Theif(int DimensionTier);
+    float chance = 0.45;
     int xpDrop = 2;
 
     int moveset[3] = {1, 0, 1};
@@ -75,8 +75,8 @@ public:
 
 class Tank : public Enemy {
 public:
-    Tank(int DimensionTeir);
-    int chance = 0.3;
+    Tank(int DimensionTier);
+    float chance = 0.3;
     int xpDrop = 13;
 
     int moveset[7] = {0, 0, 1, 1, 0, 0, 0};
@@ -86,8 +86,8 @@ public:
 
 class KingSlime : public Enemy {
 public:
-    KingSlime(int DimensionTeir);
-    int chance = 0.5;
+    KingSlime(int DimensionTier);
+    float chance = 0.5;
     bool boss = true;
     int xpDrop = 25;
 
@@ -98,8 +98,8 @@ public:
 
 class Dragon : public Enemy {
 public:   
-    Dragon(int DimensionTeir);
-    int chance = 0.3;
+    Dragon(int DimensionTier);
+    float chance = 0.3;
     int xpDrop = 25;
     bool boss = true;
 
@@ -110,8 +110,8 @@ public:
 
 class Angel : public Enemy {
 public:
-    Angel(int DimensionTeir);
-    int chance = 0.6;
+    Angel(int DimensionTier);
+    float chance = 0.6;
     int xpDrop = 25;
     bool boss = true;
 

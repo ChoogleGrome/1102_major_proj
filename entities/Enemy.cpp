@@ -5,6 +5,11 @@
 #include "Player.h"
 
 Enemy::Enemy(){
+    hp = 0;
+    currentHp = hp;
+    shields = 0;
+    baseDmg = 0;
+    critChance = 0;
 }
 
 
@@ -25,15 +30,19 @@ int Enemy::showNextMove(){
 
 //gameplay functions for the enemy
 
-int Enemy::attack(Player player){
-    int currnetDmg;
-    if (player.shields > 0){
-        currnetDmg =this->baseDmg - player.shields;
-        std::cout << currnetDmg << std::endl;
-        player.shields -= currnetDmg;
-        std::cout << player.shields << std::endl;
+bool Enemy::attack(Player player){
+    int remainingDmg = 0;;
+    if (player.shields >= 0){
+        remainingDmg = player.shields - this->baseDmg;
+        
+        player.shields -= this->baseDmg;
+
+        if (remainingDmg < 0){
+            player.shields = 0;
+            player.currentHp -= abs(remainingDmg);
+        } 
     }
-    return (player.shields);
+    return true;
 }
 
 bool Enemy::defend(Player player){
@@ -47,11 +56,12 @@ Enemy::~Enemy(){
 
 
 
-Grunt::Grunt(int DimensionTeir){
-    hp = 25 * DimensionTeir;
+Grunt::Grunt(int DimensionTier){
+    hp = 25 * DimensionTier;
     currentHp = hp;
-    baseDmg = 4 * DimensionTeir;
-    critChance = 0.1 * DimensionTeir;
+    shields = 0;
+    baseDmg = 4 * DimensionTier;
+    critChance = 0.1 * DimensionTier;
 }
 
 Grunt::~Grunt(){
@@ -59,55 +69,55 @@ Grunt::~Grunt(){
 }
 
 
-Slime::Slime(int DimensionTeir){
-    hp = 30 * DimensionTeir;
+Slime::Slime(int DimensionTier){
+    hp = 30 * DimensionTier;
     currentHp = hp;
-    baseDmg = 4 * DimensionTeir;
-    critChance = 0.25 * DimensionTeir;
+    baseDmg = 4 * DimensionTier;
+    critChance = 0.25 * DimensionTier;
 }
 
-Assassin::Assassin(int DimensionTeir){
-    hp = 15 * DimensionTeir;
+Assassin::Assassin(int DimensionTier){
+    hp = 15 * DimensionTier;
     currentHp = hp;
-    baseDmg = 4 * DimensionTeir;
-    critChance = 0.75 * DimensionTeir;
+    baseDmg = 4 * DimensionTier;
+    critChance = 0.75 * DimensionTier;
 }
 
-Theif::Theif(int DimensionTeir){
-    hp = 15 * DimensionTeir;
+Theif::Theif(int DimensionTier){
+    hp = 15 * DimensionTier;
     currentHp = hp;
-    baseDmg = 6 * DimensionTeir;
-    critChance = 0.4 * DimensionTeir;
+    baseDmg = 6 * DimensionTier;
+    critChance = 0.4 * DimensionTier;
 }
 
-Tank::Tank(int DimensionTeir){
-    hp = 80 * DimensionTeir;
+Tank::Tank(int DimensionTier){
+    hp = 80 * DimensionTier;
     currentHp = hp;
-    baseDmg = 3 * DimensionTeir;
-    critChance = 0.05 * DimensionTeir;
+    baseDmg = 3 * DimensionTier;
+    critChance = 0.05 * DimensionTier;
 }
 
-KingSlime::KingSlime(int DimensionTeir){
-    hp = 150 * DimensionTeir;
+KingSlime::KingSlime(int DimensionTier){
+    hp = 150 * DimensionTier;
     currentHp = hp;
-    baseDmg = 6 * DimensionTeir;
-    critChance = 0.3 * DimensionTeir;
+    baseDmg = 6 * DimensionTier;
+    critChance = 0.3 * DimensionTier;
 }
 
-Dragon::Dragon(int DimensionTeir){
-    hp = 150 * DimensionTeir;
+Dragon::Dragon(int DimensionTier){
+    hp = 150 * DimensionTier;
     currentHp = hp;
-    baseDmg = 8 * DimensionTeir;
-    critChance = 0.23 * DimensionTeir;
+    baseDmg = 8 * DimensionTier;
+    critChance = 0.23 * DimensionTier;
 
     // add damage co9unter thta increases every turn
 }
 
-Angel::Angel(int DimensionTeir){
-    hp = 150 * DimensionTeir;
+Angel::Angel(int DimensionTier){
+    hp = 150 * DimensionTier;
     currentHp = hp;
-    baseDmg = 10 * DimensionTeir;
-    critChance = 0.35 * DimensionTeir;
+    baseDmg = 10 * DimensionTier;
+    critChance = 0.35 * DimensionTier;
 }
 
 
