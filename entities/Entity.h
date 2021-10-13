@@ -34,7 +34,7 @@ class Entity {
 
         // Gameplay Functions
         bool hurt(int amount);
-        virtual bool defend();
+        virtual bool defend() = 0;
         ~Entity();
 };
 

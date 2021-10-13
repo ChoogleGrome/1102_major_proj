@@ -1,0 +1,29 @@
+Player Hp: 100			Enemy Hp: 25
+Player Shield: 0		Enemy Shield: 0
+Enemy Next Move: Defend
+
+Press '1' to Attack
+Press '2' to Defend
+
+PLAYER TURN
+
+Enemy took 4 damage
+Player Hp: 100			Enemy Hp: 21
+Player Shield: 0		Enemy Shield: 0
+
+ENEMY TURN
+
+Enemy receives 2 shields
+Player Hp: 100			Enemy Hp: 21
+Player Shield: 0		Enemy Shield: 2
+
+
+
+
+Player Hp: 100			Enemy Hp: 21
+Player Shield: 0		Enemy Shield: 2
+Enemy Next Move: Defend
+
+Press '1' to Attack
+Press '2' to Defend
+Ending Test

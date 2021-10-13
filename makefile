@@ -1,6 +1,7 @@
 game_test:
-	clang++ ./game/Game.cpp -o a.out
-	./a.out
+	clang++ -std=c++11 ./entities/Entity.cpp ./entities/Player.cpp ./entities/Enemy.cpp ./game/test_game.cpp -o a.out
+	./a.out < inputGame01.txt > outputGame01.txt
+	./a.out < inputGame02.txt > outputGame02.txt
 
 entities_test:
 	clang++ -std=c++11 ./entities/Entity.cpp ./entities/Player.cpp ./entities/Enemy.cpp ./entities/test_entities.cpp -o a.out
