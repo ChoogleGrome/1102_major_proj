@@ -7,34 +7,39 @@ class Entity {
 
     public: 
         Entity(); 
-        int hp; // max HP amount
-        int currentHp; //current hp amount
-        int shields; // Shield Amount
-        int shieldGain; // Gain of shield per usage
-        int baseDmg; // Base DMG ammount
-        float critChance; // Crit Chance, value between 0-1, IF crit is above 1, auto crit
+
+        int hp;                 // Max HP amount
+        int currentHp;          // Current hp amount
+        int shields;            // Shield Amount
+        int shieldGain;         // Gain of shield per usage
+        int baseDmg;            // Base DMG ammount
+        float critChance;       // Crit Chance, value between 0-1, IF crit is above 1, auto crit
+        
         // Return Functions
-        int getHP(); // gets max hp
-        int getCurrentHp(); //returns current health
-        int getShields();
-        int getShieldGain();
-        int getBaseDmg();
-        float getCritChance();
-        int damage();
+        int getHP();            // Get max hp
+        int getCurrentHp();     // Geturns current health
+        int getShields();       // Get shield
+        int getShieldGain();    // Get the amount of shield gain
+        int getBaseDmg();       // Get base damage
+        float getCritChance();  // Get critical chance
+        
+        int damage();           // Calculate how much damage to deal to opponent
 
         // Update Functions
-        int updateHP(int amount);
-        int updateShields(int amount);
-        int updateShieldAmount(int amount);
-        int updateBaseDmg(int amount);
-        int updateCritChance(int amount);
+        int updateHP(int amount);           // Update Hp
+        int updateShields(int amount);      // Update shields
+        int updateShieldAmount(int amount); // Update shield gain amount
+        int updateBaseDmg(int amount);      // Update base damage
+        int updateCritChance(int amount);   // Update crit chance
 
         // Shield Corrode Percentage 0.35 per turn
         int shieldTurnCorrode();
 
         // Gameplay Functions
-        bool hurt(int amount);
-        virtual bool defend() = 0;
+        void hurt(int amount);
+        virtual void defend() = 0;
+
+        // Deconstructor
         ~Entity();
 };
 

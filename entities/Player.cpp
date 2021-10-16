@@ -16,41 +16,43 @@ Player::Player(){
     xp = 0;
 }
  
-// returns an array of the players items
+// Returns an array of the players items
 Artifacts* Player::getItems(){
     return items;
 }
 
-// shows the players current level and xp gained.
+// Shows the players current level and xp gained.
 int Player::getXp(){
     return xp;
 }
 
-//adds the amount of experience from enemies
+// Adds the amount of experience from enemies
 void Player::increseXp(int amount){
-    xp += amount; // adds amount to the current xp
+    xp += amount;           // adds amount to the current xp
     if(xp > 100){  
-        level = level + 1; // if xp reaches a point greater than 100 a level is added
-        xp = xp - 100; // and then xp cap is subtracted to rest progression
+        level = level + 1;  // if xp reaches a point greater than 100 a level is added
+        xp = xp - 100;      // and then xp cap is subtracted to rest progression
     }
 }
 
-
+// Get the player level
 int Player::getLevel(){
     return level;
 }
 
+// Add artifact to the array
 bool Player::addItem(Artifacts newItem){
     newItem = items[NumItems];
     return 0;
 }
 
-
-bool Player::defend(){
+// Defend (add shields to the player)
+void Player::defend(){
     shields += shieldGain;
-    return 0;
+    //return 0;
 }
 
+// Deconstructor
 Player::~Player(){
 
 }

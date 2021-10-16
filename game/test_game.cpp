@@ -58,8 +58,7 @@ int main()
             std::cout << std::endl << "Invalid Input, try again" << std::endl;
             std::cout << "Press '1' to Attack" << std::endl << "Press '2' to Defend" << std::endl;
             std::cin >> userInput;
-        }
-        
+        }        
 
        std::cout << std::endl << "PLAYER TURN" << std::endl << std::endl;
 

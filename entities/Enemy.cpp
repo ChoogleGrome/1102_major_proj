@@ -4,6 +4,8 @@
 #include "Enemy.h"
 #include "Player.h"
 
+
+// Constructor to create intiail attributes for enemy
 Enemy::Enemy(){
     hp = 0;
     currentHp = hp;
@@ -14,31 +16,59 @@ Enemy::Enemy(){
 }
 
 
-//returns boss
+//Determines if enemy is boss or normal
 bool Enemy::isBoss(){
     return boss;
 }
 
-//retuns the experinece droped
+//Returns the experinece droped by the enemy
 int Enemy::deathXp(){
     return xpDrop;
 }
 
-//Shows the Next move that the enemy will make
+//Shows the next move that the enemy will make
 int Enemy::showNextMove(){
-    return moveset[moveNum];
+
+    /*
+    if (moveCounter == moveNum){
+        moveCounter = 0;
+    }
+    
+    std::cout << moveNum << std::endl;
+
+    if (moveset[moveCounter] == 0)
+        {
+            std::cout << "Enemy Next Move: Defend" << std::endl;;
+        } else {
+            std::cout << "Enemy Next Move: Attack" << std::endl;;
+        }
+
+    return moveset[moveCounter++];
+    */
+
+   //This code will not work unless we use pointers, 
+   //It is impossible to pass information from the child class (moveSet, moveNum) back to parent class
+   //Only Parent class to child class which is why defend works but not this
+
+   return 0;
 }
 
-//gameplay functions for the enemy
+////// Gameplay functions for the enemy //////
 
-bool Enemy::defend(){
+//Enemy ability to defend itself
+void Enemy::defend(){
     shields += shieldGain;
-    return 0;
+    //return 0;
 }
 
+//Deconstructor
 Enemy::~Enemy(){
 }
 
+
+////// List of all possible enemies ///////
+
+//Enemy One
 Grunt::Grunt(int DimensionTier){
     hp = 25 * DimensionTier;
     currentHp = hp;
@@ -48,6 +78,7 @@ Grunt::Grunt(int DimensionTier){
     critChance = 0.1 * DimensionTier;
 }
 
+//Enemy Two
 Slime::Slime(int DimensionTier){
     hp = 30 * DimensionTier;
     currentHp = hp;
@@ -55,6 +86,7 @@ Slime::Slime(int DimensionTier){
     critChance = 0.25 * DimensionTier;
 }
 
+//Enemy Three
 Assassin::Assassin(int DimensionTier){
     hp = 15 * DimensionTier;
     currentHp = hp;
@@ -62,6 +94,7 @@ Assassin::Assassin(int DimensionTier){
     critChance = 0.75 * DimensionTier;
 }
 
+//Enemy Four
 Theif::Theif(int DimensionTier){
     hp = 15 * DimensionTier;
     currentHp = hp;
@@ -69,6 +102,7 @@ Theif::Theif(int DimensionTier){
     critChance = 0.4 * DimensionTier;
 }
 
+//Enemy Five
 Tank::Tank(int DimensionTier){
     hp = 80 * DimensionTier;
     currentHp = hp;
@@ -76,6 +110,7 @@ Tank::Tank(int DimensionTier){
     critChance = 0.05 * DimensionTier;
 }
 
+//Enemy Six
 KingSlime::KingSlime(int DimensionTier){
     hp = 150 * DimensionTier;
     currentHp = hp;
@@ -83,6 +118,7 @@ KingSlime::KingSlime(int DimensionTier){
     critChance = 0.3 * DimensionTier;
 }
 
+//Enemy Seven
 Dragon::Dragon(int DimensionTier){
     hp = 150 * DimensionTier;
     currentHp = hp;
@@ -92,6 +128,7 @@ Dragon::Dragon(int DimensionTier){
     // add damage co9unter thta increases every turn
 }
 
+//Enemy Eight
 Angel::Angel(int DimensionTier){
     hp = 150 * DimensionTier;
     currentHp = hp;
