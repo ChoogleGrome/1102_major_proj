@@ -14,14 +14,42 @@ Player::Player(){
     shieldGain = 3;
     level = 0;
     xp = 0;
-}
- 
-// Returns an array of the players items
-Artifacts* Player::getItems(){
-    return items;
+    items = new Artifacts[3];
 }
 
-// Shows the players current level and xp gained.
+ 
+Player::Player(int size){
+    NumItems = 0;
+    currentHp = 100;
+    hp = 100;
+    baseDmg = 3;
+    critChance = 0.2;
+    shields = 0;
+    shieldGain = 3;
+    level = 0;
+    xp = 0;
+
+    items = new Artifacts[size];
+}
+
+
+// Add artifact to the array
+bool Player::addItem(Artifacts newItem){
+    items[NumItems++] = newItem;
+    std::cout << items[0].name << std::endl;
+    return true;
+}
+
+// Returns an array of the players items
+void Player::getItems(){
+    for(int i = 0; i < NumItems; i++){
+        std::cout << items[i].name << ", "; 
+    }
+   std::cout << std::endl;
+}
+
+
+// Shows the players current level and xp gained.s
 int Player::getXp(){
     return xp;
 }
@@ -40,16 +68,10 @@ int Player::getLevel(){
     return level;
 }
 
-// Add artifact to the array
-bool Player::addItem(Artifacts newItem){
-    newItem = items[NumItems];
-    return 0;
-}
 
 // Defend (add shields to the player)
 void Player::defend(){
     shields += shieldGain;
-    //return 0;
 }
 
 // Deconstructor

@@ -18,9 +18,10 @@ class Player : public Entity {
 
         // Constructor
         Player();
+        Player(int size);
 
         // Get functions
-        Artifacts* getItems();  // Return array of items
+        void getItems();  // Return array of items
         int getXp();            // XP
         int getLevel();         // Levels
 

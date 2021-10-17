@@ -1,5 +1,5 @@
 #include <iostream>
-#include <string>
+#include <string.h>
 #include "../artifacts/Artifacts.h"
 #include "Entity.h"
 #include "Enemy.h"
@@ -9,22 +9,22 @@ int main()
 {   
 
     //Testing Player attribute and behaviours
-    Player player;
-    player.hp = 100;
-    player.baseDmg = 3;
-    player.critChance = 0.4;
-    player.shields = 0;
-    player.shieldGain = 1;
+    Player * player = new Player;
+    player->hp = 100;
+    player->baseDmg = 3;
+    player->critChance = 0.4;
+    player->shields = 0;
+    player->shieldGain = 1;
 
     std::cout << std::endl << "Testing Player" << std::endl;                    // Title
-    std::cout << "Players base Damage: " << player.getBaseDmg() << std::endl;   // Base damage check
-    std::cout << "Players crit chance: " << player.getCritChance()<< std::endl; // Crit chance check
-    std::cout << "Player current HP: " << player.getCurrentHp() << std::endl;   // Current hp check
-    std::cout << "Player max HP: " << player.getHP() << std::endl;              // Max hp check
-    std::cout << "Player level: " << player.getLevel() << std::endl;            // Level check
-    std::cout << "Player shield gains: " << player.getShieldGain() << std::endl;// Shield gains check
-    std::cout << "Player shield: " << player.getShields() << std::endl;         // Shield check
-    std::cout << "Player xp: " << player.getXp() << std::endl;                  // XP check
+    std::cout << "Players base Damage: " << player->getBaseDmg() << std::endl;   // Base damage check
+    std::cout << "Players crit chance: " << player->getCritChance()<< std::endl; // Crit chance check
+    std::cout << "Player current HP: " << player->getCurrentHp() << std::endl;   // Current hp check
+    std::cout << "Player max HP: " << player->getHP() << std::endl;              // Max hp check
+    std::cout << "Player level: " << player->getLevel() << std::endl;            // Level check
+    std::cout << "Player shield gains: " << player->getShieldGain() << std::endl;// Shield gains check
+    std::cout << "Player shield: " << player->getShields() << std::endl;         // Shield check
+    std::cout << "Player xp: " << player->getXp() << std::endl;                  // XP check
 
 
 
@@ -57,6 +57,13 @@ int main()
         std::cout << "This enemy is a boss monster" << std::endl;
     }
     std::cout << "Total XP Drop: " << enemy.xpDrop << std::endl;
+
+
+    Herbs herb1;
+
+    player->addItem(herb1);
+
+    player->getItems();
 
     return 0;
 }
