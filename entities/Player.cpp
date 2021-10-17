@@ -6,15 +6,15 @@
 
 Player::Player(){
     NumItems = 0;
-    currentHp = 100;
-    hp = 100;
-    baseDmg = 3;
-    critChance = 0.2;
+    currentHp = 0;
+    hp = 0;
+    baseDmg = 0;
+    critChance = 0;
     shields = 0;
-    shieldGain = 3;
+    shieldGain = 0;
     level = 0;
     xp = 0;
-    items = new Artifacts[3];
+    items = nullptr;
 }
 
  
@@ -29,16 +29,12 @@ Player::Player(int size){
     level = 0;
     xp = 0;
 
+    
     items = new Artifacts[size];
+
+    std::cout << size << " " << sizeof(*items) << " " << sizeof(items[0]) << " " << sizeof(*items)/sizeof(items[0]) << std::endl;
 }
 
-
-// Add artifact to the array
-bool Player::addItem(Artifacts newItem){
-    items[NumItems++] = newItem;
-    std::cout << items[0].name << std::endl;
-    return true;
-}
 
 // Returns an array of the players items
 void Player::getItems(){
@@ -66,6 +62,12 @@ void Player::increseXp(int amount){
 // Get the player level
 int Player::getLevel(){
     return level;
+}
+
+// Add artifact to the array
+bool Player::addItem(Artifacts newItem){
+    items[NumItems++] = newItem;
+    return true;
 }
 
 

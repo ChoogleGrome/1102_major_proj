@@ -9,12 +9,15 @@
 struct Enemy;
 
 class Player : public Entity {
-    private:
+    public:
         Artifacts *items;   // Artifact/items that the player will gather
+
+    //private:
         int NumItems;       // Number of items
         int xp;             // every 100 xp level up
         int level;          // start lvl 1
-    public:
+        
+    //public:
 
         // Constructor
         Player();

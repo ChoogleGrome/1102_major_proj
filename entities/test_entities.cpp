@@ -9,7 +9,8 @@ int main()
 {   
 
     //Testing Player attribute and behaviours
-    Player * player = new Player;
+    Player * player = new Player(1);
+
     player->hp = 100;
     player->baseDmg = 3;
     player->critChance = 0.4;
@@ -57,13 +58,6 @@ int main()
         std::cout << "This enemy is a boss monster" << std::endl;
     }
     std::cout << "Total XP Drop: " << enemy.xpDrop << std::endl;
-
-
-    Herbs herb1;
-
-    player->addItem(herb1);
-
-    player->getItems();
-
+    
     return 0;
 }
