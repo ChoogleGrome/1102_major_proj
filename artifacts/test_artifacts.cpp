@@ -8,7 +8,7 @@ int main()
 {   
 
     //Testing Player attribute and behaviours
-    Player * player = new Player(1);
+    Player * player = new Player(2);
     Herbs herb1;
     GreenGemStone GGem1;
     GreenGemStone GGem2;
@@ -28,6 +28,7 @@ int main()
 
     std::cout << "Num Items: " << player->NumItems << std::endl;
 
-    //std::cout << "Size: " << player->size << std::endl;
+    delete player;
+
     return 0;
 }

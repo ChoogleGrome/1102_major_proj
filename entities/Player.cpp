@@ -31,8 +31,6 @@ Player::Player(int size){
 
     
     items = new Artifacts[size];
-
-    std::cout << size << " " << sizeof(*items) << " " << sizeof(items[0]) << " " << sizeof(*items)/sizeof(items[0]) << std::endl;
 }
 
 
@@ -78,5 +76,7 @@ void Player::defend(){
 
 // Deconstructor
 Player::~Player(){
-
+    if(items != nullptr){
+        delete[] items;
+    }
 }
