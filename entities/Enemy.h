@@ -47,7 +47,7 @@ public:
     int moveNum = 3;
 
     // Deconstructor
-    //~Grunt();
+    ~Grunt();
 };
 
 // Enemy Two

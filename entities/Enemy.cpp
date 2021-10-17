@@ -78,12 +78,20 @@ Grunt::Grunt(int DimensionTier){
     critChance = 0.1 * DimensionTier;
 }
 
+Grunt::~Grunt(){
+
+}
+
 //Enemy Two
 Slime::Slime(int DimensionTier){
     hp = 30 * DimensionTier;
     currentHp = hp;
     baseDmg = 4 * DimensionTier;
     critChance = 0.25 * DimensionTier;
+}
+
+Slime::~Slime(){
+
 }
 
 //Enemy Three
@@ -94,12 +102,20 @@ Assassin::Assassin(int DimensionTier){
     critChance = 0.75 * DimensionTier;
 }
 
+Assassin::~Assassin(){
+
+}
+
 //Enemy Four
 Theif::Theif(int DimensionTier){
     hp = 15 * DimensionTier;
     currentHp = hp;
     baseDmg = 6 * DimensionTier;
     critChance = 0.4 * DimensionTier;
+}
+
+Theif::~Theif(){
+
 }
 
 //Enemy Five
@@ -110,12 +126,19 @@ Tank::Tank(int DimensionTier){
     critChance = 0.05 * DimensionTier;
 }
 
+Tank::~Tank(){
+
+}
 //Enemy Six
 KingSlime::KingSlime(int DimensionTier){
     hp = 150 * DimensionTier;
     currentHp = hp;
     baseDmg = 6 * DimensionTier;
     critChance = 0.3 * DimensionTier;
+}
+
+KingSlime::~KingSlime(){
+
 }
 
 //Enemy Seven
@@ -128,6 +151,10 @@ Dragon::Dragon(int DimensionTier){
     // add damage co9unter thta increases every turn
 }
 
+Dragon::~Dragon(){
+
+}
+
 //Enemy Eight
 Angel::Angel(int DimensionTier){
     hp = 150 * DimensionTier;
@@ -136,5 +163,8 @@ Angel::Angel(int DimensionTier){
     critChance = 0.35 * DimensionTier;
 }
 
+Angel::~Angel(){
+    
+}
 
 
