@@ -64,8 +64,16 @@ int main()
     // return 0;
 
     Enemy *enemy;
-    Angel grunt;
+    Grunt grunt;
     enemy = &grunt;
     enemy->init(2);
+
+    grunt.getName();
+
+    std::cout << enemy->showNextMove() << std::endl; 
+    std::cout << enemy->showNextMove() << std::endl; 
+    std::cout << enemy->showNextMove() << std::endl; 
+    std::cout << enemy->showNextMove() << std::endl; 
+    std::cout << enemy->showNextMove() << std::endl; 
     std::cout << enemy->showNextMove() << std::endl; 
 }
