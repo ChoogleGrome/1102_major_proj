@@ -68,7 +68,10 @@ int main()
     enemy = &grunt;
     enemy->init(2);
 
-    grunt.getName();
+    Player player;
+    std::cout << player.getCurrentHp() << std::endl;
+
+    std::cout << enemy->getName() << std::endl;
 
     std::cout << enemy->showNextMove() << std::endl; 
     std::cout << enemy->showNextMove() << std::endl; 

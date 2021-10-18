@@ -6,3 +6,5 @@ Game::Game(){
     dimensionTier = 1;
     level = 1;   
 }
+
+Game::~Game(){}

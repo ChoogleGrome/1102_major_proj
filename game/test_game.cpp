@@ -8,29 +8,28 @@
 int main()
 {
     //Creating player
-    Player * player = new Player;
+    Player player;
 
     // creating a basic enemy grunt
-    Grunt enemy(1);
+    Enemy *enemy;
+    Grunt grunt;
+    enemy = &grunt;
+    enemy->init(1);
 
     //Quick game test
     int i = 0;
     int userInput = 0;
 
-    while (enemy.currentHp >= 0)
+    while (enemy->currentHp >= 0)
     {
-        if (i == enemy.moveNum)
-        {
-            i = 0;
-        }
 
         std::string enemyMove;
 
-        std::cout << "Player Hp: " << player->currentHp << "\t\t\t" << "Enemy Hp: " << enemy.currentHp << std::endl;
-        std::cout << "Player Shield: " << player->shields << "\t\t" << "Enemy Shield: " << enemy.shields << std::endl;
+        std::cout << "Player Hp: " << player.getCurrentHp() << "\t\t\t" << "Enemy Hp: " << enemy->getCurrentHp() << std::endl;
+        std::cout << "Player Shield: " << player.getShields() << "\t\t" << "Enemy Shield: " << enemy->getShields() << std::endl;
 
 
-        if (enemy.moveset[i] == 0)
+        if (enemy->showNextMove() == 0)
         {
             enemyMove = "Defend";
         } else {
@@ -64,36 +63,34 @@ int main()
 
         if (userInput == 1)
         {
-            enemy.hurt(player->damage());
-            std::cout << "Enemy took " << player->damage() << " damage" << std::endl;
+            enemy->hurt(player.damage());
+            std::cout << "Enemy took " << player.damage() << " damage" << std::endl;
         } else if (userInput == 2){
-            player->defend();
-            std::cout << "Player receives " << player->getShieldGain() << " shields" << std::endl;
+            player.defend();
+            std::cout << "Player receives " << player.getShieldGain() << " shields" << std::endl;
         }
 
-        std::cout << "Player Hp: " << player->getCurrentHp() << "\t\t\t" << "Enemy Hp: " << enemy.getCurrentHp() << std::endl;
-        std::cout << "Player Shield: " << player->getShields() << "\t\t" << "Enemy Shield: " << enemy.getShields() << std::endl;
+        std::cout << "Player Hp: " << player.getCurrentHp() << "\t\t\t" << "Enemy Hp: " << enemy->getCurrentHp() << std::endl;
+        std::cout << "Player Shield: " << player.getShields() << "\t\t" << "Enemy Shield: " << enemy->getShields() << std::endl;
 
         std::cout << std::endl << "ENEMY TURN" << std::endl << std::endl;;
 
-        if (enemy.moveset[i] == 1)
+        if (enemy->showNextMove() == 1)
         {
-            player->hurt(enemy.damage());
-            std::cout << "Player took " << enemy.damage() << " damage" << std::endl;
+            player.hurt(enemy->damage());
+            std::cout << "Player took " << enemy->damage() << " damage" << std::endl;
         } else {
-            enemy.defend();
-            std::cout << "Enemy receives " << enemy.getShieldGain() << " shields" << std::endl;
+            enemy->defend();
+            std::cout << "Enemy receives " << enemy->getShieldGain() << " shields" << std::endl;
         }
 
-        std::cout << "Player Hp: " << player->getCurrentHp() << "\t\t\t" << "Enemy Hp: " << enemy.getCurrentHp() << std::endl;
-        std::cout << "Player Shield: " << player->getShields() << "\t\t" << "Enemy Shield: " << enemy.getShields() << std::endl;
+        std::cout << "Player Hp: " << player.getCurrentHp() << "\t\t\t" << "Enemy Hp: " << enemy->getCurrentHp() << std::endl;
+        std::cout << "Player Shield: " << player.getShields() << "\t\t" << "Enemy Shield: " << enemy->getShields() << std::endl;
 
         std::cout << std::endl << std::endl << std::endl << std::endl;
 
         i++;
     }
-
-    delete player;
     
     return 0;
 }

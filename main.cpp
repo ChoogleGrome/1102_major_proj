@@ -13,7 +13,7 @@ using namespace std;
 
 int main(void) {
     /////////////////////////////////////////////////////// INIT ///////////////////////////////////////////////////////
-    Game * game = new Game();
+    Game * game = new Game;
     initscr();
     srand(time(0));
 
@@ -55,12 +55,16 @@ int main(void) {
     while (player.getCurrentHp() > 0) {
         while (true) {
             if (game->level < 10) { // Add fireplace room
-                randEnemy = rand() % 300;
-                // randEnemy = 266;
+                //randEnemy = rand() % 300;
+                //randEnemy = 0;
 
                 if (randEnemy < 60) {
                     Grunt grunt;
                     levelEnemy = &grunt;
+                    levelEnemy->init(1);
+                    printw("%s\nHP: %i\n", levelEnemy->getName().c_str(),levelEnemy->getHP());
+                    return 0;
+
                 } else if (randEnemy < 135 && randEnemy >= 60) {
                     Slime slime;
                     levelEnemy = &slime;
