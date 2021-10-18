@@ -10,27 +10,35 @@ struct Enemy;
 
 class Player : public Entity {
     public:
-        Artifacts *items;   // Artifact/items that the player will gather
+        Artifacts items[10] = {
+            Herbs(),
+            StrangeElixir(),
+            Whetstone(),
+            HiddenBlade(),
+            SpareBattery(),
+            BookOnMonsters(),
+            ExpiredMilk(),
+            BlueGemStone(),
+            GreenGemStone(),
+            RedGemStone()
+        };   // Artifact/items that the player will gather
 
-    //private:
         int NumItems;       // Number of items
         int xp;             // every 100 xp level up
         int level;          // start lvl 1
-        
-    //public:
 
         // Constructor
         Player();
-        Player(int size);
+        // Player(int size);
 
         // Get functions
-        void getItems();  // Return array of items
+        // void getItems();  // Return array of items
         int getXp();            // XP
         int getLevel();         // Levels
 
         // Update functions
         void increseXp(int amount);         // level up check within function
-        bool addItem(Artifacts newItem);    // Add item into array of items
+        bool addItem(Artifacts* newItem);    // Add item into array of items
 
         // Gameplay Functions
         void defend();

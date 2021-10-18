@@ -6,78 +6,96 @@
 
 
 // Constructor to create intiail attributes for enemy
-Enemy::Enemy(){
-    hp = 0;
+// Enemy::Enemy() { }
+
+Enemy::Enemy(std::string nm, bool isBoss, float chnc, int xp, int *moves, int numMoves, int dimensionTier, int hP, int shieldgain, int basedmg, float critchance){
+    hp = hP * dimensionTier;
     currentHp = hp;
-    baseDmg = 0;
-    critChance = 0;
+    baseDmg = basedmg * dimensionTier;
+    critChance = critchance;
     shields = 0;
-    shieldGain = 0;
+    shieldGain = shieldgain * dimensionTier;
+
+    name = nm;
+    boss = isBoss;
+    chance = chnc;
+    xpDrop = xp;
+    moveset = moves;
+    moveNum = numMoves;
 }
 
+void Grunt::init(int dimensionTier) {
+    hp *= dimensionTier;
+    baseDmg *= dimensionTier;
+    shieldGain *= dimensionTier;
 
-//Determines if enemy is boss or normal
-bool Enemy::isBoss(){
-    return boss;
+    moveset[2] = 1;
 }
 
-//Returns the experinece droped by the enemy
-int Enemy::deathXp(){
-    return xpDrop;
+void Slime::init(int dimensionTier) {
+    hp *= dimensionTier;
+    baseDmg *= dimensionTier;
+    shieldGain *= dimensionTier;
+
+    moveset[2] = 1;
 }
 
-//Shows the next move that the enemy will make
-int Enemy::showNextMove(){
+void Assassin::init(int dimensionTier) {
+    hp *= dimensionTier;
+    baseDmg *= dimensionTier;
+    shieldGain *= dimensionTier;
 
-    /*
-    if (moveCounter == moveNum){
-        moveCounter = 0;
-    }
-    
-    std::cout << moveNum << std::endl;
-
-    if (moveset[moveCounter] == 0)
-        {
-            std::cout << "Enemy Next Move: Defend" << std::endl;;
-        } else {
-            std::cout << "Enemy Next Move: Attack" << std::endl;;
-        }
-
-    return moveset[moveCounter++];
-    */
-
-   //This code will not work unless we use pointers, 
-   //It is impossible to pass information from the child class (moveSet, moveNum) back to parent class
-   //Only Parent class to child class which is why defend works but not this
-
-   return 0;
+    moveset[0] = 2;
+    moveset[2] = 2;
+    moveset[3] = 1;
 }
 
-////// Gameplay functions for the enemy //////
+void Thief::init(int dimensionTier) {
+    hp *= dimensionTier;
+    baseDmg *= dimensionTier;
+    shieldGain *= dimensionTier;
 
-//Enemy ability to defend itself
-void Enemy::defend(){
-    shields += shieldGain;
-    //return 0;
+    moveset[0] = 1;
+    moveset[2] = 1;
 }
 
-//Deconstructor
-Enemy::~Enemy(){
+void Tank::init(int dimensionTier) {
+    hp *= dimensionTier;
+    baseDmg *= dimensionTier;
+    shieldGain *= dimensionTier;
+
+    moveset[2] = 1;
+    moveset[3] = 1;
 }
 
+void KingSlime::init(int dimensionTier) {
+    hp *= dimensionTier;
+    baseDmg *= dimensionTier;
+    shieldGain *= dimensionTier;
 
-////// List of all possible enemies ///////
-
-//Enemy One
-Grunt::Grunt(int DimensionTier){
-    hp = 25 * DimensionTier;
-    currentHp = hp;
-    shields = 0;
-    shieldGain = 2;
-    baseDmg = 4 * DimensionTier;
-    critChance = 0.1 * DimensionTier;
+    moveset[0] = 1;
+    moveset[2] = 1;
+    moveset[3] = 1;
+    moveset[4] = 1;
+    moveset[5] = 2;
+    moveset[8] = 1;
 }
 
+void Dragon::init(int dimensionTier) {
+    hp *= dimensionTier;
+    baseDmg *= dimensionTier;
+    shieldGain *= dimensionTier;
+
+    moveset[3] = 1;
+    moveset[4] = 1;
+    moveset[5] = 1;
+    moveset[6] = 1;
+    moveset[7] = 2;
+    moveset[8] = 1;
+    moveset[9] = 1;
+}
+
+<<<<<<< HEAD
 Grunt::~Grunt(){
 
 }
@@ -147,10 +165,51 @@ Dragon::Dragon(int DimensionTier){
     currentHp = hp;
     baseDmg = 8 * DimensionTier;
     critChance = 0.23 * DimensionTier;
+=======
+void Angel::init(int dimensionTier) {
+    hp *= dimensionTier;
+    baseDmg *= dimensionTier;
+    shieldGain *= dimensionTier;
 
-    // add damage co9unter thta increases every turn
+    moveset[0] = 1;
+    moveset[1] = 1;
+    moveset[3] = 1;
+    moveset[4] = 2;
+    moveset[5] = 2;
+    moveset[6] = 1;
 }
 
+//Determines if enemy is boss or normal
+bool Enemy::isBoss(){
+    return boss;
+}
+
+//Returns the experinece droped by the enemy
+int Enemy::deathXp(){
+    return xpDrop;
+}
+
+//Shows the next move that the enemy will make
+int Enemy::showNextMove(){
+    return moveset[moveCounter++];
+
+   return 0;
+}
+
+std::string Enemy::getName() {
+    return name;
+}
+
+////// Gameplay functions for the enemy //////
+>>>>>>> 89953b7af25bef9be9c8b7d3348081c25ae1b68f
+
+//Enemy ability to defend itself
+void Enemy::defend(){
+    shields += shieldGain;
+    //return 0;
+}
+
+<<<<<<< HEAD
 Dragon::~Dragon(){
 
 }
@@ -168,3 +227,9 @@ Angel::~Angel(){
 }
 
 
+=======
+//Deconstructor
+Enemy::~Enemy(){
+}
+
+>>>>>>> 89953b7af25bef9be9c8b7d3348081c25ae1b68f

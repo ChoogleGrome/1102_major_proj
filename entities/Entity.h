@@ -3,8 +3,6 @@
 #define ENTITY_H
 
 class Entity {
-    protected:
-
     public: 
         Entity(); 
 

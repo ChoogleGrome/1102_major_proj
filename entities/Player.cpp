@@ -6,20 +6,6 @@
 
 Player::Player(){
     NumItems = 0;
-    currentHp = 0;
-    hp = 0;
-    baseDmg = 0;
-    critChance = 0;
-    shields = 0;
-    shieldGain = 0;
-    level = 0;
-    xp = 0;
-    items = nullptr;
-}
-
- 
-Player::Player(int size){
-    NumItems = 0;
     currentHp = 100;
     hp = 100;
     baseDmg = 3;
@@ -29,20 +15,35 @@ Player::Player(int size){
     level = 0;
     xp = 0;
 
-    
-    items = new Artifacts[size];
+    items[0] = Herbs();
 
-    std::cout << size << " " << sizeof(*items) << " " << sizeof(items[0]) << " " << sizeof(*items)/sizeof(items[0]) << std::endl;
+    // items = new Artifacts[5];
 }
+
+ 
+// Player::Player(int size){
+//     NumItems = 0;
+//     currentHp = 100;
+//     hp = 100;
+//     baseDmg = 3;
+//     critChance = 0.2;
+//     shields = 0;
+//     shieldGain = 3;
+//     level = 0;
+//     xp = 0;
+
+    
+//     items = new Artifacts[size];
+// }
 
 
 // Returns an array of the players items
-void Player::getItems(){
-    for(int i = 0; i < NumItems; i++){
-        std::cout << items[i].name << ", "; 
-    }
-   std::cout << std::endl;
-}
+// void Player::getItems(){
+//     for (int i = 0; i < NumItems; i++){
+//         std::cout << items[i].name << ", "; 
+//     }
+//    std::cout << std::endl;
+// }
 
 
 // Shows the players current level and xp gained.s
@@ -65,8 +66,19 @@ int Player::getLevel(){
 }
 
 // Add artifact to the array
-bool Player::addItem(Artifacts newItem){
-    items[NumItems++] = newItem;
+bool Player::addItem(Artifacts* newItem){
+    for (int i = 0; i < 10; i++) {
+        if (newItem->name == items[i].name) {
+            items[i].amount++;
+            NumItems++;
+            this->updateHP(items[i].hp * items[i].amount);
+            hp += items[i].maxHp * items[i].amount;
+            this->updateShieldAmount(items[i].shields * items[i].amount);
+            shieldGain = items[i].shieldGain * items[i].amount;
+            updateBaseDmg(items[i].baseDmg * items[i].amount);
+            updateCritChance(items[i].critChance * items[i].amount);
+        }
+    }
     return true;
 }
 
@@ -78,5 +90,4 @@ void Player::defend(){
 
 // Deconstructor
 Player::~Player(){
-
 }
