@@ -20,7 +20,7 @@ class Artifacts {
         int baseDmg;        // Base DMG ammount
         float critChance;   // Crit Chance, value between 0-1 
 
-        int amount;         // Increment based on copies of items
+        int amount = 0;         // Increment based on copies of items
 
         ~Artifacts();
 };
