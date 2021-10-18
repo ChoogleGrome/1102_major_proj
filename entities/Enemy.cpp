@@ -120,27 +120,7 @@ int Enemy::deathXp(){
 
 //Shows the next move that the enemy will make
 int Enemy::showNextMove(){
-
-    /*
-    if (moveCounter == moveNum){
-        moveCounter = 0;
-    }
-    
-    std::cout << moveNum << std::endl;
-
-    if (moveset[moveCounter] == 0)
-        {
-            std::cout << "Enemy Next Move: Defend" << std::endl;;
-        } else {
-            std::cout << "Enemy Next Move: Attack" << std::endl;;
-        }
-
     return moveset[moveCounter++];
-    */
-
-   //This code will not work unless we use pointers, 
-   //It is impossible to pass information from the child class (moveSet, moveNum) back to parent class
-   //Only Parent class to child class which is why defend works but not this
 
    return 0;
 }
@@ -155,10 +135,6 @@ std::string Enemy::getName() {
 void Enemy::defend(){
     shields += shieldGain;
     //return 0;
-}
-
-void Enemy::setMoves(int* mvs) {
-    moveset = mvs;
 }
 
 //Deconstructor

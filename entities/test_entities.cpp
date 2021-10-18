@@ -30,42 +30,42 @@ int main()
 
 
     // Testing enemy attribute and behavious
-    std::cout << std::endl << std::endl << "Test Enemy" << std::endl;
-    Angel enemy;
-    enemy.init(2);    
+    // std::cout << std::endl << std::endl << "Test Enemy" << std::endl;
+    // Angel enemy;
+    // enemy.init(2);    
 
-    std::cout << "Enemy Name: " << enemy.getName() << std::endl;
-    std::cout << "Enemy HP: " << enemy.hp << std::endl;                         // Hp Check
-    std::cout << "Enemy Base Damage: " << enemy.baseDmg << std::endl;           // Base damage check
-    std::cout << "Enemy Crit chance: " << enemy.critChance << std::endl;        // Crit chance check
+    // std::cout << "Enemy Name: " << enemy.getName() << std::endl;
+    // std::cout << "Enemy HP: " << enemy.hp << std::endl;                         // Hp Check
+    // std::cout << "Enemy Base Damage: " << enemy.baseDmg << std::endl;           // Base damage check
+    // std::cout << "Enemy Crit chance: " << enemy.critChance << std::endl;        // Crit chance check
 
-    //Loop to check the enemy moveset
-    std::cout << "Enemy Moveset:" << std::endl;
-    for(int i = 0; i < enemy.moveNum; i++){
-        // std::cout << enemy.moveset[i] << std::endl;
-        if (enemy.moveset[i] == 0)
-        {
-            std::cout << "Defend ";
-        } else {
-            std::cout << "Attack ";
-        }
-    }
-    std::cout << std::endl;
+    // //Loop to check the enemy moveset
+    // std::cout << "Enemy Moveset:" << std::endl;
+    // for(int i = 0; i < enemy.moveNum; i++){
+    //     // std::cout << enemy.moveset[i] << std::endl;
+    //     if (enemy.moveset[i] == 0)
+    //     {
+    //         std::cout << "Defend ";
+    //     } else {
+    //         std::cout << "Attack ";
+    //     }
+    // }
+    // std::cout << std::endl;
 
-    //Check if enemy is a boss
-    if (enemy.isBoss() == 0)
-    {
-        std::cout << "This enemy is a normal monster" << std::endl;
-    } else {
-        std::cout << "This enemy is a boss monster" << std::endl;
-    }
-    std::cout << "Total XP Drop: " << enemy.deathXp() << std::endl;
+    // //Check if enemy is a boss
+    // if (enemy.isBoss() == 0)
+    // {
+    //     std::cout << "This enemy is a normal monster" << std::endl;
+    // } else {
+    //     std::cout << "This enemy is a boss monster" << std::endl;
+    // }
+    // std::cout << "Total XP Drop: " << enemy.deathXp() << std::endl;
     
-    return 0;
+    // return 0;
 
-    // Enemy *enemy;
-    // Thief grunt;
-    // enemy = &grunt;
-    // enemy->init(2);
-    // std::cout << enemy->getName() << std::endl; 
+    Enemy *enemy;
+    Angel grunt;
+    enemy = &grunt;
+    enemy->init(2);
+    std::cout << enemy->showNextMove() << std::endl; 
 }

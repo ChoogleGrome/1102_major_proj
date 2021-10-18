@@ -41,6 +41,7 @@ float Entity::getCritChance(){
 // Update Functions
 int Entity::updateHP(int amount){
     currentHp += amount;
+    if (currentHp > hp) { currentHp = hp; }
     return currentHp;
 }
 

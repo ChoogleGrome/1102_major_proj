@@ -13,13 +13,13 @@ class Enemy : public Entity {
         bool boss = false;      // Is enemy a boss?
         float chance = 0.2;     // Chance of showing up
         int xpDrop = 10;        // Xp dropped per death
-        int moveCounter = 0;    // What move they are on, range between 0-moveNum                      // Array of moves, 0 - attack, 1 - defend, 2 - hidden (chace of either attack or defence)        // Length of *moveset array
+        int moveCounter = 0; 
+        int *moveset;    
+        int moveNum; 
     public:
 
         // Constructor
         Enemy();
-        int *moveset;   
-        int moveNum;
         Enemy(std::string nm, bool isBoss, float chnc, int xp, int *moves, int numMoves, int dimensionTier, int hp, int shieldgain, int basedmg, float critchance); // Movecounter = 0 
 
         // Get Functions
@@ -27,8 +27,6 @@ class Enemy : public Entity {
         int deathXp();
         int showNextMove();
         std::string getName();
-        void setMoves(int* moveset);
-        void setDimensionTier(int dimensionTier);
 
         // Gameplay Functions
         void defend();

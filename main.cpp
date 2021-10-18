@@ -15,6 +15,7 @@ int main(void) {
     /////////////////////////////////////////////////////// INIT ///////////////////////////////////////////////////////
     Game * game = new Game();
     initscr();
+    srand(time(0));
 
     //////////////////////////////////////////////// INTRO SCREEN START ////////////////////////////////////////////////
     // Game Instruction Print
@@ -51,41 +52,85 @@ int main(void) {
     Player player;
     int randEnemy = 0;
     Enemy *levelEnemy;
-    if (game->level < 10) {
-        randEnemy = rand() % 250;
-        randEnemy = 32;
 
-        if (randEnemy < 60) {
-            Grunt grunt(game->dimensionTier);
-            levelEnemy = &grunt;
-        } else if (randEnemy < 135 && randEnemy >= 60) {
-            Slime *levelEnemy = new Slime(game->dimensionTier);
-        } else if (randEnemy < 175 && randEnemy >= 135) {
-            Assassin *levelEnemy = new Assassin(game->dimensionTier);
-        } else if (randEnemy < 220 && randEnemy >= 175) {
-            Theif *levelEnemy = new Theif(game->dimensionTier);
-        } else if (randEnemy <= 250 && randEnemy >= 220) {
-            Tank *levelEnemy = new Tank(game->dimensionTier);
-        } else {
-            return 1;
-        }
-    } else {
-        randEnemy = rand() % 140;
+    while (true) {
+        if (game->level < 10) { // Add fireplace room
+            randEnemy = rand() % 300;
+            randEnemy = 266;
 
-        if (randEnemy < 50) {
-            KingSlime *levelEnemy = new KingSlime(game->dimensionTier);
-        } else if (randEnemy < 110 && randEnemy >= 50) {
-            Dragon *levelEnemy = new Dragon(game->dimensionTier);
-        } else if (randEnemy <= 140 && randEnemy >= 110) {
-            Angel *levelEnemy = new Angel(game->dimensionTier);
+            if (randEnemy < 60) {
+                Grunt grunt;
+                levelEnemy = &grunt;
+            } else if (randEnemy < 135 && randEnemy >= 60) {
+                Slime slime;
+                levelEnemy = &slime;
+            } else if (randEnemy < 175 && randEnemy >= 135) {
+                Assassin assassin;
+                levelEnemy = &assassin;
+            } else if (randEnemy < 220 && randEnemy >= 175) {
+                Thief thief;
+                levelEnemy = &thief;
+            } else if (randEnemy < 250 && randEnemy >= 220) {
+                Tank tank;
+                levelEnemy = &tank;
+            }  else if (randEnemy <= 300 && randEnemy >= 250) {
+                continue;
+            } else {
+                return 1;
+            }
         } else {
-            return 1;
+            randEnemy = rand() % 140;
+
+            if (randEnemy < 50) {
+                KingSlime kingSlime;
+                levelEnemy = &kingSlime;
+            } else if (randEnemy < 110 && randEnemy >= 50) {
+                Dragon dragon;
+                levelEnemy = &dragon;
+            } else if (randEnemy <= 140 && randEnemy >= 110) {
+                Angel angel;
+                levelEnemy = &angel;
+            } else {
+                return 1;
+            }
         }
+
+        levelEnemy->init(game->dimensionTier);
+
+        // randEnemy = 266;
+
+        if (randEnemy >= 250) {
+            printw("You have Reached a Resting Ground\nChoose between Recover HP (H) or Increase Damage (D)");
+            refresh();
+            scanw("%s", check_char.c_str());
+            check = true;
+            while (check) {
+                if (strcmp(check_char.c_str(), "H") == 0) {
+                    printw("You have chosen to Recover HP, HP healed by 20");
+                    player.updateHP(20);
+                    break;
+                } else if (strcmp(check_char.c_str(), "D") == 0) {
+                    printw("You have chosen to Increase Damage, Attack Damage increased by 2");
+                    player.updateBaseDmg(2);
+                    break;
+                } else {
+                    printw("%s\n", check_char.c_str());
+                    printw("Incorrect Input, Try Again\n");
+                    printw("Please enter 'H' to Recover HP or 'D' to Increase Damage\n");
+                    refresh();
+                    scanw("%s", check_char.c_str());
+                }
+            }
+        }
+        
+        printw("PLAYER\nHP: %i\nShields: %i\nAttack Damage: %i\nCritical Chance: %f\nEXP Level: %i\n", player.getCurrentHp(), player.getShields(), player.getBaseDmg(), player.getCritChance(), player.getLevel());
+        // printw("PLAYER\nHP: %i\nShields: %i\nAttack Damage: %i\nCritical Chance: %f\nEXP Level: %i\n", player.getCurrentHp(), player.getShields(), player.getBaseDmg(), player.getCritChance(), player.getLevel());
+        refresh();
+        getch();
+
+
+        break;
     }
-    
-    printw("%s", (levelEnemy->getName()).c_str());
-    refresh();
-    getch();
 
     endwin();
     return 0;

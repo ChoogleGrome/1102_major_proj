@@ -5,16 +5,17 @@
 #include "../artifacts/Artifacts.h"
 
 Player::Player(){
-    NumItems = 0;
-    currentHp = 0;
-    hp = 0;
-    baseDmg = 0;
-    critChance = 0;
+     NumItems = 0;
+    currentHp = 100;
+    hp = 100;
+    baseDmg = 3;
+    critChance = 0.2;
     shields = 0;
-    shieldGain = 0;
+    shieldGain = 3;
     level = 0;
     xp = 0;
-    items = nullptr;
+
+    items = new Artifacts[5];
 }
 
  
