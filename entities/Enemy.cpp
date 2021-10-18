@@ -6,15 +6,107 @@
 
 
 // Constructor to create intiail attributes for enemy
-Enemy::Enemy(){
-    hp = 0;
+// Enemy::Enemy() { }
+
+Enemy::Enemy(std::string nm, bool isBoss, float chnc, int xp, int *moves, int numMoves, int dimensionTier, int hP, int shieldgain, int basedmg, float critchance){
+    hp = hP * dimensionTier;
     currentHp = hp;
-    baseDmg = 0;
-    critChance = 0;
+    baseDmg = basedmg * dimensionTier;
+    critChance = critchance;
     shields = 0;
-    shieldGain = 0;
+    shieldGain = shieldgain * dimensionTier;
+
+    name = nm;
+    boss = isBoss;
+    chance = chnc;
+    xpDrop = xp;
+    moveset = moves;
+    moveNum = numMoves;
 }
 
+void Grunt::init(int dimensionTier) {
+    hp *= dimensionTier;
+    baseDmg *= dimensionTier;
+    shieldGain *= dimensionTier;
+
+    moveset[2] = 1;
+}
+
+void Slime::init(int dimensionTier) {
+    hp *= dimensionTier;
+    baseDmg *= dimensionTier;
+    shieldGain *= dimensionTier;
+
+    moveset[2] = 1;
+}
+
+void Assassin::init(int dimensionTier) {
+    hp *= dimensionTier;
+    baseDmg *= dimensionTier;
+    shieldGain *= dimensionTier;
+
+    moveset[0] = 2;
+    moveset[2] = 2;
+    moveset[3] = 1;
+}
+
+void Thief::init(int dimensionTier) {
+    hp *= dimensionTier;
+    baseDmg *= dimensionTier;
+    shieldGain *= dimensionTier;
+
+    moveset[0] = 1;
+    moveset[2] = 1;
+}
+
+void Tank::init(int dimensionTier) {
+    hp *= dimensionTier;
+    baseDmg *= dimensionTier;
+    shieldGain *= dimensionTier;
+
+    moveset[2] = 1;
+    moveset[3] = 1;
+}
+
+void KingSlime::init(int dimensionTier) {
+    hp *= dimensionTier;
+    baseDmg *= dimensionTier;
+    shieldGain *= dimensionTier;
+
+    moveset[0] = 1;
+    moveset[2] = 1;
+    moveset[3] = 1;
+    moveset[4] = 1;
+    moveset[5] = 2;
+    moveset[8] = 1;
+}
+
+void Dragon::init(int dimensionTier) {
+    hp *= dimensionTier;
+    baseDmg *= dimensionTier;
+    shieldGain *= dimensionTier;
+
+    moveset[3] = 1;
+    moveset[4] = 1;
+    moveset[5] = 1;
+    moveset[6] = 1;
+    moveset[7] = 2;
+    moveset[8] = 1;
+    moveset[9] = 1;
+}
+
+void Angel::init(int dimensionTier) {
+    hp *= dimensionTier;
+    baseDmg *= dimensionTier;
+    shieldGain *= dimensionTier;
+
+    moveset[0] = 1;
+    moveset[1] = 1;
+    moveset[3] = 1;
+    moveset[4] = 2;
+    moveset[5] = 2;
+    moveset[6] = 1;
+}
 
 //Determines if enemy is boss or normal
 bool Enemy::isBoss(){
@@ -65,80 +157,11 @@ void Enemy::defend(){
     //return 0;
 }
 
+void Enemy::setMoves(int* mvs) {
+    moveset = mvs;
+}
+
 //Deconstructor
 Enemy::~Enemy(){
 }
-
-
-////// List of all possible enemies ///////
-
-//Enemy One
-Grunt::Grunt(){
-    hp = 25;
-    currentHp = hp;
-    shields = 0;
-    shieldGain = 2;
-    baseDmg = 4;
-    critChance = 0.1;
-}
-
-//Enemy Two
-Slime::Slime(int DimensionTier){
-    hp = 30 * DimensionTier;
-    currentHp = hp;
-    baseDmg = 4 * DimensionTier;
-    critChance = 0.25 * DimensionTier;
-}
-
-//Enemy Three
-Assassin::Assassin(int DimensionTier){
-    hp = 15 * DimensionTier;
-    currentHp = hp;
-    baseDmg = 4 * DimensionTier;
-    critChance = 0.75 * DimensionTier;
-}
-
-//Enemy Four
-Theif::Theif(int DimensionTier){
-    hp = 15 * DimensionTier;
-    currentHp = hp;
-    baseDmg = 6 * DimensionTier;
-    critChance = 0.4 * DimensionTier;
-}
-
-//Enemy Five
-Tank::Tank(int DimensionTier){
-    hp = 80 * DimensionTier;
-    currentHp = hp;
-    baseDmg = 3 * DimensionTier;
-    critChance = 0.05 * DimensionTier;
-}
-
-//Enemy Six
-KingSlime::KingSlime(int DimensionTier){
-    hp = 150 * DimensionTier;
-    currentHp = hp;
-    baseDmg = 6 * DimensionTier;
-    critChance = 0.3 * DimensionTier;
-}
-
-//Enemy Seven
-Dragon::Dragon(int DimensionTier){
-    hp = 150 * DimensionTier;
-    currentHp = hp;
-    baseDmg = 8 * DimensionTier;
-    critChance = 0.23 * DimensionTier;
-
-    // add damage co9unter thta increases every turn
-}
-
-//Enemy Eight
-Angel::Angel(int DimensionTier){
-    hp = 150 * DimensionTier;
-    currentHp = hp;
-    baseDmg = 10 * DimensionTier;
-    critChance = 0.35 * DimensionTier;
-}
-
-
 
