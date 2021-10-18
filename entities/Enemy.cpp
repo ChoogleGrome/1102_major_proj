@@ -95,6 +95,77 @@ void Dragon::init(int dimensionTier) {
     moveset[9] = 1;
 }
 
+<<<<<<< HEAD
+Grunt::~Grunt(){
+
+}
+
+//Enemy Two
+Slime::Slime(int DimensionTier){
+    hp = 30 * DimensionTier;
+    currentHp = hp;
+    baseDmg = 4 * DimensionTier;
+    critChance = 0.25 * DimensionTier;
+}
+
+Slime::~Slime(){
+
+}
+
+//Enemy Three
+Assassin::Assassin(int DimensionTier){
+    hp = 15 * DimensionTier;
+    currentHp = hp;
+    baseDmg = 4 * DimensionTier;
+    critChance = 0.75 * DimensionTier;
+}
+
+Assassin::~Assassin(){
+
+}
+
+//Enemy Four
+Theif::Theif(int DimensionTier){
+    hp = 15 * DimensionTier;
+    currentHp = hp;
+    baseDmg = 6 * DimensionTier;
+    critChance = 0.4 * DimensionTier;
+}
+
+Theif::~Theif(){
+
+}
+
+//Enemy Five
+Tank::Tank(int DimensionTier){
+    hp = 80 * DimensionTier;
+    currentHp = hp;
+    baseDmg = 3 * DimensionTier;
+    critChance = 0.05 * DimensionTier;
+}
+
+Tank::~Tank(){
+
+}
+//Enemy Six
+KingSlime::KingSlime(int DimensionTier){
+    hp = 150 * DimensionTier;
+    currentHp = hp;
+    baseDmg = 6 * DimensionTier;
+    critChance = 0.3 * DimensionTier;
+}
+
+KingSlime::~KingSlime(){
+
+}
+
+//Enemy Seven
+Dragon::Dragon(int DimensionTier){
+    hp = 150 * DimensionTier;
+    currentHp = hp;
+    baseDmg = 8 * DimensionTier;
+    critChance = 0.23 * DimensionTier;
+=======
 void Angel::init(int dimensionTier) {
     hp *= dimensionTier;
     baseDmg *= dimensionTier;
@@ -130,6 +201,7 @@ std::string Enemy::getName() {
 }
 
 ////// Gameplay functions for the enemy //////
+>>>>>>> 89953b7af25bef9be9c8b7d3348081c25ae1b68f
 
 //Enemy ability to defend itself
 void Enemy::defend(){
@@ -137,7 +209,27 @@ void Enemy::defend(){
     //return 0;
 }
 
+<<<<<<< HEAD
+Dragon::~Dragon(){
+
+}
+
+//Enemy Eight
+Angel::Angel(int DimensionTier){
+    hp = 150 * DimensionTier;
+    currentHp = hp;
+    baseDmg = 10 * DimensionTier;
+    critChance = 0.35 * DimensionTier;
+}
+
+Angel::~Angel(){
+    
+}
+
+
+=======
 //Deconstructor
 Enemy::~Enemy(){
 }
 
+>>>>>>> 89953b7af25bef9be9c8b7d3348081c25ae1b68f

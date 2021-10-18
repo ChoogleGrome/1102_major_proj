@@ -44,8 +44,21 @@ class Grunt : public Enemy {
 public:
 
     // Construntor
+<<<<<<< HEAD
+    Grunt(int DimensionTier);
+
+    // Attributes
+    float chance = 0.6;
+    int xpDrop = 5;
+    int moveset[3] = {0, 0, 1};
+    int moveNum = 3;
+
+    // Deconstructor
+    ~Grunt();
+=======
     Grunt(std::string nm = "Grunt", bool isBoss = false, float chnc = 0.6, int xp = 5, int *moves = new int[3], int numMoves = 3, int dimensionTier = 1, int hp = 25, int shieldgain = 2, int basedmg = 4, float critchance = 0.1):Enemy(nm, isBoss, chnc, xp, moves, numMoves, dimensionTier, hp, shieldgain, basedmg, critchance) { };
     void init(int dimensionTier);
+>>>>>>> 89953b7af25bef9be9c8b7d3348081c25ae1b68f
 };
 
 // Enemy Two
