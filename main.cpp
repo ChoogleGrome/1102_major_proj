@@ -37,7 +37,7 @@ int main(void) {
         if (strcmp(check_char.c_str(), "Y") == 0) {
             break;
         } else {
-            printw("%s\n", check_char.c_str());
+            // printw("%s\n", check_char.c_str());
             printw("Incorrect Input, Try Again\n");
             printw("Enter 'Y' without quotations when ready to contiue\n");
             refresh();
@@ -74,7 +74,7 @@ int main(void) {
                 Tank tank;
                 levelEnemy = &tank;
             }  else if (randEnemy <= 300 && randEnemy >= 250) {
-                continue;
+                randEnemy = 275; 
             } else {
                 return 1;
             }
@@ -95,12 +95,10 @@ int main(void) {
             }
         }
 
-        levelEnemy->init(game->dimensionTier);
-
-        // randEnemy = 266;
+        // levelEnemy->init(game->dimensionTier);
 
         if (randEnemy >= 250) {
-            printw("You have Reached a Resting Ground\nChoose between Recover HP (H) or Increase Damage (D)");
+            printw("You have Reached a Resting Ground\nChoose between Recover HP (H) or Increase Damage (D)\n");
             refresh();
             scanw("%s", check_char.c_str());
             check = true;
@@ -114,7 +112,7 @@ int main(void) {
                     player.updateBaseDmg(2);
                     break;
                 } else {
-                    printw("%s\n", check_char.c_str());
+                    // printw("%s\n", check_char.c_str());
                     printw("Incorrect Input, Try Again\n");
                     printw("Please enter 'H' to Recover HP or 'D' to Increase Damage\n");
                     refresh();
