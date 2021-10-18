@@ -73,13 +73,13 @@ Enemy::~Enemy(){
 ////// List of all possible enemies ///////
 
 //Enemy One
-Grunt::Grunt(int DimensionTier){
-    hp = 25 * DimensionTier;
+Grunt::Grunt(){
+    hp = 25;
     currentHp = hp;
     shields = 0;
     shieldGain = 2;
-    baseDmg = 4 * DimensionTier;
-    critChance = 0.1 * DimensionTier;
+    baseDmg = 4;
+    critChance = 0.1;
 }
 
 //Enemy Two

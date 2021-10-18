@@ -20,6 +20,7 @@ class Enemy :public Entity {
 
         // Constructor
         Enemy();
+        Enemy(std::string nm, bool isBoss, float chnc, int xp, int moves[], int numMoves, int dimensionTier); // Movecounter = 0 
 
         // Get Functions
         bool isBoss();
@@ -41,7 +42,8 @@ class Grunt : public Enemy {
 public:
 
     // Construntor
-    Grunt(int DimensionTier);
+    Grunt(std::string nm = "Grunt", bool isBoss = false, float chnc = 0.6, int xp = 5, int moves[3] = {0, 1, 1}, int numMoves = 3, int dimensionTier = 1);
+    Grunt();
 
     // Attributes
     std::string name = "Grunt";
