@@ -53,6 +53,10 @@ int Enemy::showNextMove(){
    return 0;
 }
 
+std::string Enemy::getName() {
+    return name;
+}
+
 ////// Gameplay functions for the enemy //////
 
 //Enemy ability to defend itself

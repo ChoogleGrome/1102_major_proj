@@ -3,11 +3,13 @@
 #define ENEMY_H
 #include "Player.h"
 #include "Entity.h"
+#include <string>
 
 struct Player;
 
 class Enemy :public Entity {
-    private:
+    protected:
+        std::string name = "Empty";
         bool boss = false;      // Is enemy a boss?
         float chance = 0.2;     // Chance of showing up
         int xpDrop = 10;        // Xp dropped per death
@@ -23,6 +25,7 @@ class Enemy :public Entity {
         bool isBoss();
         int deathXp();
         int showNextMove();
+        std::string getName();
 
         // Gameplay Functions
         void defend();
@@ -41,6 +44,7 @@ public:
     Grunt(int DimensionTier);
 
     // Attributes
+    std::string name = "Grunt";
     float chance = 0.6;
     int xpDrop = 5;
     int moveset[3] = {0, 0, 1};
@@ -58,6 +62,7 @@ public:
     Slime(int DimensionTier);
 
     // Attributes
+    std::string name = "Slime";
     float chance = 0.75;
     int xpDrop = 8;
     int moveset[5] = {1, 0, 1, 1, 0};
@@ -75,6 +80,7 @@ public:
     Assassin(int DimensionTier);
 
     // Attributes
+    std::string name = "Assasin";
     float chance = 0.4;
     int xpDrop = 10;
     int moveset[4] = {2, 0, 2, 1};
@@ -92,6 +98,7 @@ public:
     Theif(int DimensionTier);
 
     // Attributes
+    std::string name = "Theif";
     float chance = 0.45;
     int xpDrop = 2;
     int moveset[3] = {1, 0, 1};
@@ -109,6 +116,7 @@ public:
     Tank(int DimensionTier);
 
     // Attributes
+    std::string name = "Tank";
     float chance = 0.3;
     int xpDrop = 13;
     int moveset[7] = {0, 0, 1, 1, 0, 0, 0};
@@ -128,6 +136,7 @@ public:
     KingSlime(int DimensionTier);
 
     // Attributes
+    std::string name = "King Slime";
     bool boss = true;
     float chance = 0.5;
     int xpDrop = 25;
@@ -146,6 +155,7 @@ public:
     Dragon(int DimensionTier);
 
     // Attributes
+    std::string name = "Dragon";
     bool boss = true;
     float chance = 0.3;
     int xpDrop = 25;
@@ -164,6 +174,7 @@ public:
     Angel(int DimensionTier);
 
     // Attributes
+    std::string name = "Angel";
     bool boss = true;
     float chance = 0.6;
     int xpDrop = 25;

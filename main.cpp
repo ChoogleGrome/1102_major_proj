@@ -48,6 +48,45 @@ int main(void) {
     clear();
     //////////////////////////////////////////////// INTRO SCREEN END //////////////////////////////////////////////////
 
+    Player player;
+    int randEnemy = 0;
+    Enemy *levelEnemy;
+    if (game->level < 10) {
+        randEnemy = rand() % 250;
+        randEnemy = 32;
+
+        if (randEnemy < 60) {
+            Grunt grunt(game->dimensionTier);
+            levelEnemy = &grunt;
+        } else if (randEnemy < 135 && randEnemy >= 60) {
+            Slime *levelEnemy = new Slime(game->dimensionTier);
+        } else if (randEnemy < 175 && randEnemy >= 135) {
+            Assassin *levelEnemy = new Assassin(game->dimensionTier);
+        } else if (randEnemy < 220 && randEnemy >= 175) {
+            Theif *levelEnemy = new Theif(game->dimensionTier);
+        } else if (randEnemy <= 250 && randEnemy >= 220) {
+            Tank *levelEnemy = new Tank(game->dimensionTier);
+        } else {
+            return 1;
+        }
+    } else {
+        randEnemy = rand() % 140;
+
+        if (randEnemy < 50) {
+            KingSlime *levelEnemy = new KingSlime(game->dimensionTier);
+        } else if (randEnemy < 110 && randEnemy >= 50) {
+            Dragon *levelEnemy = new Dragon(game->dimensionTier);
+        } else if (randEnemy <= 140 && randEnemy >= 110) {
+            Angel *levelEnemy = new Angel(game->dimensionTier);
+        } else {
+            return 1;
+        }
+    }
+    
+    printw("%s", (levelEnemy->getName()).c_str());
+    refresh();
+    getch();
+
     endwin();
     return 0;
 }
