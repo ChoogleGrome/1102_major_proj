@@ -17,7 +17,7 @@ class Enemy : public Entity {
 
         // Constructor
         Enemy();
-        Enemy(std::string nm, int *moves, int numMoves, int dimensionTier, int HP, int shieldgain, int basedmg, float critchance); // Movecounter = 0 
+        Enemy(std::string nm, int *moves, int numMoves, int HP, int shieldgain, int basedmg, float critchance); // Movecounter = 0 
 
         // Get Functions
         int showNextMove();
@@ -39,7 +39,7 @@ class Grunt : public Enemy {
 public:
 
     // Constructor
-    Grunt(std::string nm = "GRUNT", int *moves = new int[3], int numMoves = 3, int dimensionTier = 1, int HP = 25, int shieldgain = 2, int basedmg = 4, float critchance = 0.1):Enemy(nm, moves, numMoves, dimensionTier, HP, shieldgain, basedmg, critchance) { };
+    Grunt(std::string nm = "GRUNT", int *moves = new int[3], int numMoves = 3, int HP = 25, int shieldgain = 2, int basedmg = 4, float critchance = 0.1):Enemy(nm, moves, numMoves, HP, shieldgain, basedmg, critchance) { };
     void init(int dimensionTier);
 };
 
@@ -48,7 +48,7 @@ class Slime : public Enemy {
 public:
 
     // Constructor
-    Slime(std::string nm = "SLIME", int *moves = new int[5], int numMoves = 5, int dimensionTier = 1, int HP = 30, int shieldgain = 3, int basedmg = 4, float critchance = 0.25):Enemy(nm, moves, numMoves, dimensionTier, HP, shieldgain, basedmg, critchance) { };
+    Slime(std::string nm = "SLIME", int *moves = new int[5], int numMoves = 5, int HP = 30, int shieldgain = 3, int basedmg = 4, float critchance = 0.25):Enemy(nm, moves, numMoves, HP, shieldgain, basedmg, critchance) { };
     void init(int dimensionTier);
 };
 
@@ -57,7 +57,7 @@ class Assassin : public Enemy {
 public:
 
     // Constructor
-    Assassin(std::string nm = "ASSASSIN", int *moves = new int[4], int numMoves = 4, int dimensionTier = 1, int HP = 15, int shieldgain = 1, int basedmg = 6, float critchance = 0.75):Enemy(nm, moves, numMoves, dimensionTier, HP, shieldgain, basedmg, critchance) { };
+    Assassin(std::string nm = "ASSASSIN", int *moves = new int[4], int numMoves = 4, int HP = 15, int shieldgain = 1, int basedmg = 6, float critchance = 0.75):Enemy(nm, moves, numMoves, HP, shieldgain, basedmg, critchance) { };
     void init(int dimensionTier);
 };
 
@@ -66,7 +66,7 @@ class Thief : public Enemy {
 public:
 
     // Constructor
-    Thief(std::string nm = "THIEF", int *moves = new int[3], int numMoves = 3, int dimensionTier = 1, int HP = 15, int shieldgain = 2, int basedmg = 6, float critchance = 0.4):Enemy(nm, moves, numMoves, dimensionTier, HP, shieldgain, basedmg, critchance) { };
+    Thief(std::string nm = "THIEF", int *moves = new int[3], int numMoves = 3, int HP = 15, int shieldgain = 2, int basedmg = 6, float critchance = 0.4):Enemy(nm, moves, numMoves, HP, shieldgain, basedmg, critchance) { };
     void init(int dimensionTier);
 };
 
@@ -75,7 +75,7 @@ class Tank : public Enemy {
 public:
 
     // Constructor
-    Tank(std::string nm = "TANK", int *moves = new int[7], int numMoves = 7, int dimensionTier = 1, int HP = 80, int shieldgain = 7, int basedmg = 3, float critchance = 0.05):Enemy(nm, moves, numMoves, dimensionTier, HP, shieldgain, basedmg, critchance) { };
+    Tank(std::string nm = "TANK", int *moves = new int[7], int numMoves = 7, int HP = 80, int shieldgain = 7, int basedmg = 3, float critchance = 0.05):Enemy(nm, moves, numMoves, HP, shieldgain, basedmg, critchance) { };
     void init(int dimensionTier);
 };
 
@@ -86,7 +86,7 @@ class KingSlime : public Enemy {
 public:
 
     // Constructor
-    KingSlime(std::string nm = "KING SLIME", int *moves = new int[10], int numMoves = 10, int dimensionTier = 1, int HP = 150, int shieldgain = 15, int basedmg = 6, float critchance = 0.3):Enemy(nm, moves, numMoves, dimensionTier, HP, shieldgain, basedmg, critchance) { };
+    KingSlime(std::string nm = "KING SLIME", int *moves = new int[10], int numMoves = 10, int HP = 150, int shieldgain = 15, int basedmg = 6, float critchance = 0.3):Enemy(nm, moves, numMoves, HP, shieldgain, basedmg, critchance) { };
     void init(int dimensionTier);
 };
 
@@ -95,7 +95,7 @@ class Dragon : public Enemy {
 public:   
 
     // Constructor
-    Dragon(std::string nm = "DRAGON", int *moves = new int[10], int numMoves = 10, int dimensionTier = 1, int HP = 150, int shieldgain = 5, int basedmg = 8, float critchance = 0.23):Enemy(nm, moves, numMoves, dimensionTier, HP, shieldgain, basedmg, critchance) { };
+    Dragon(std::string nm = "DRAGON", int *moves = new int[10], int numMoves = 10, int HP = 150, int shieldgain = 5, int basedmg = 8, float critchance = 0.23):Enemy(nm, moves, numMoves, HP, shieldgain, basedmg, critchance) { };
     void init(int dimensionTier);
 };
 
@@ -104,7 +104,7 @@ class Angel : public Enemy {
 public:
 
     // Constructor
-    Angel(std::string nm = "ANGEL", int *moves = new int[8], int numMoves = 8, int dimensionTier = 1, int HP = 150, int shieldgain = 3, int basedmg = 10, float critchance = 0.35):Enemy(nm, moves, numMoves, dimensionTier, HP, shieldgain, basedmg, critchance) { };
+    Angel(std::string nm = "ANGEL", int *moves = new int[8], int numMoves = 8, int HP = 150, int shieldgain = 3, int basedmg = 10, float critchance = 0.35):Enemy(nm, moves, numMoves, HP, shieldgain, basedmg, critchance) { };
     void init(int dimensionTier);
 };
 

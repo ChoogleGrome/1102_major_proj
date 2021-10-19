@@ -6,14 +6,14 @@
 
 // Enemy contructor
 
-// Enemy(enemy name, ref to moves array, dimensionTier, )
-Enemy::Enemy(std::string nm, int *moves, int numMoves, int dimensionTier, int HP, int shieldgain, int basedmg, float critchance){
-    hp = HP * dimensionTier;
+// Enemy(enemy name, ref to moves array, )
+Enemy::Enemy(std::string nm, int *moves, int numMoves, int HP, int shieldgain, int basedmg, float critchance){
+    hp = HP;
     currentHp = hp;
-    baseDmg = basedmg * dimensionTier;
+    baseDmg = basedmg;
     critChance = critchance;
     shields = 0;
-    shieldGain = shieldgain * dimensionTier;
+    shieldGain = shieldgain;
 
     name = nm;
     moveset = moves;
