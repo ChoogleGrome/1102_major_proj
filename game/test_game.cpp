@@ -75,7 +75,7 @@ int main()
 
         std::cout << std::endl << "ENEMY TURN" << std::endl << std::endl;;
 
-        if (enemy->showNextMove() == 1)
+        if (enemyMove == "Attack")
         {
             player.hurt(enemy->damage());
             std::cout << "Player took " << enemy->damage() << " damage" << std::endl;
