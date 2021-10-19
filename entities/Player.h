@@ -38,7 +38,7 @@ class Player : public Entity {
 
         // Update functions
         void increseXp(int amount);         // level up check within function
-        bool addItem(Artifacts* newItem);    // Add item into array of items
+        bool addItem(int index);    // Add item into array of items
 
         // Gameplay Functions
         void defend();

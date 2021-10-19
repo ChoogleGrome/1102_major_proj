@@ -28,7 +28,7 @@ class Entity {
         int updateShields(int amount);      // Update shields
         int updateShieldAmount(int amount); // Update shield gain amount
         int updateBaseDmg(int amount);      // Update base damage
-        int updateCritChance(int amount);   // Update crit chance
+        float updateCritChance(float amount);   // Update crit chance
 
         // Shield Corrode Percentage 0.35 per turn
         int shieldTurnCorrode();

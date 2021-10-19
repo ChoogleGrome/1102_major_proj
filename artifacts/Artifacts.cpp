@@ -45,6 +45,7 @@ GreenGemStone::~GreenGemStone(){}
 StrangeElixir::StrangeElixir(){
     name = "Strange Elixir";
     maxHp = 20 * amount;
+    hp = 20 * amount;
 }
 
 StrangeElixir::~StrangeElixir(){}
@@ -70,7 +71,7 @@ RedGemStone::~RedGemStone(){}
 // Artifact 3
 HiddenBlade::HiddenBlade(){
     name = "Hidden Blade";
-    hp = 10 * amount;
+    baseDmg = 10 * amount;
 }
 
 HiddenBlade::~HiddenBlade(){}

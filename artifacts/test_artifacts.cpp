@@ -6,27 +6,19 @@
 
 int main()
 {   
+    Player player;
 
     //Testing Player attribute and behaviours
-    Player * player = new Player();
-    Herbs herb1;
-    GreenGemStone GGem1;
-    GreenGemStone GGem2;
-    GreenGemStone GGem3;
+    srand(time(0));
+    int randNum = (rand() % 10) - 1;
 
-    player->addItem(&herb1);
-    player->addItem(&GGem1);
-    player->addItem(&GGem2);
+    player.addItem(randNum);
 
-    // player->getItems();
+    std::cout << player.NumItems << std::endl;
 
-    std::cout << "Num Items: " << player->NumItems << std::endl;
-
-    player->addItem(&GGem3);
-
-    // player->getItems();
-
-    std::cout << "Num Items: " << player->NumItems << std::endl;
+    for (int i = 0; i < 10; i++) {
+        std::cout << player.items[i].name << " " << player.items[i].amount << std::endl;
+    }
 
     return 0;
 }

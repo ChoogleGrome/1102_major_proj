@@ -64,7 +64,7 @@ int Entity::updateBaseDmg(int amount){
 }
 
 // Update critical chance
-int Entity::updateCritChance(int amount){
+float Entity::updateCritChance(float amount){
     critChance += amount;
     return critChance;
 }

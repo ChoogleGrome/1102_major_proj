@@ -66,19 +66,15 @@ int Player::getLevel(){
 }
 
 // Add artifact to the array
-bool Player::addItem(Artifacts* newItem){
-    for (int i = 0; i < 10; i++) {
-        if (newItem->name == items[i].name) {
-            items[i].amount++;
-            NumItems++;
-            this->updateHP(items[i].hp * items[i].amount);
-            hp += items[i].maxHp * items[i].amount;
-            this->updateShieldAmount(items[i].shields * items[i].amount);
-            shieldGain = items[i].shieldGain * items[i].amount;
-            updateBaseDmg(items[i].baseDmg * items[i].amount);
-            updateCritChance(items[i].critChance * items[i].amount);
-        }
-    }
+bool Player::addItem(int i){
+    items[i].amount++;
+    NumItems++;
+    this->updateHP(items[i].hp * items[i].amount);
+    hp += items[i].maxHp * items[i].amount;
+    this->updateShieldAmount(items[i].shields * items[i].amount);
+    shieldGain = items[i].shieldGain * items[i].amount;
+    updateBaseDmg(items[i].baseDmg * items[i].amount);
+    updateCritChance(items[i].critChance * items[i].amount);
     return true;
 }
 

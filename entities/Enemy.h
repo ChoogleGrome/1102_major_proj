@@ -53,7 +53,7 @@ class Slime : public Enemy {
 public:
 
     // Constructor
-    Slime(std::string nm = "Slime", bool isBoss = false, float chnc = 0.75, int xp = 8, int *moves = new int[5], int numMoves = 5, int dimensionTier = 1, int hp = 30, int shieldgain = 0, int basedmg = 4, float critchance = 0.25):Enemy(nm, isBoss, chnc, xp, moves, numMoves, dimensionTier, hp, shieldgain, basedmg, critchance) { };
+    Slime(std::string nm = "Slime", bool isBoss = false, float chnc = 0.75, int xp = 8, int *moves = new int[5], int numMoves = 5, int dimensionTier = 1, int hp = 30, int shieldgain = 3, int basedmg = 4, float critchance = 0.25):Enemy(nm, isBoss, chnc, xp, moves, numMoves, dimensionTier, hp, shieldgain, basedmg, critchance) { };
     void init(int dimensionTier);
 };
 
@@ -62,7 +62,7 @@ class Assassin : public Enemy {
 public:
 
     // Constructor
-    Assassin(std::string nm = "Assasin", bool isBoss = false, float chnc = 0.4, int xp = 10, int *moves = new int[4], int numMoves = 4, int dimensionTier = 1, int hp = 15, int shieldgain = 0, int basedmg = 6, float critchance = 0.75):Enemy(nm, isBoss, chnc, xp, moves, numMoves, dimensionTier, hp, shieldgain, basedmg, critchance) { };
+    Assassin(std::string nm = "Assasin", bool isBoss = false, float chnc = 0.4, int xp = 10, int *moves = new int[4], int numMoves = 4, int dimensionTier = 1, int hp = 15, int shieldgain = 1, int basedmg = 6, float critchance = 0.75):Enemy(nm, isBoss, chnc, xp, moves, numMoves, dimensionTier, hp, shieldgain, basedmg, critchance) { };
     void init(int dimensionTier);
     // Attributes
     // std::string name = "Assasin";
@@ -79,7 +79,7 @@ class Thief : public Enemy {
 public:
 
     // Constructor
-    Thief(std::string nm = "Thief", bool isBoss = false, float chnc = 0.45, int xp = 2, int *moves = new int[3], int numMoves = 3, int dimensionTier = 1, int hp = 15, int shieldgain = 0, int basedmg = 6, float critchance = 0.4):Enemy(nm, isBoss, chnc, xp, moves, numMoves, dimensionTier, hp, shieldgain, basedmg, critchance) { };
+    Thief(std::string nm = "Thief", bool isBoss = false, float chnc = 0.45, int xp = 2, int *moves = new int[3], int numMoves = 3, int dimensionTier = 1, int hp = 15, int shieldgain = 2, int basedmg = 6, float critchance = 0.4):Enemy(nm, isBoss, chnc, xp, moves, numMoves, dimensionTier, hp, shieldgain, basedmg, critchance) { };
     void init(int dimensionTier);
 
     // Attributes
