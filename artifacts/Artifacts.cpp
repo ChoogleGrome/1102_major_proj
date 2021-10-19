@@ -25,7 +25,7 @@ Artifacts::~Artifacts(){}
 // Artifact 1
 Herbs::Herbs(){
     name = "Herbs";
-    hp = 50 * amount;
+    hp = 50;
     desc = "Increases Current Health by 50";
 }
 
@@ -34,7 +34,7 @@ Herbs::~Herbs(){}
 // Artifact 2
 GreenGemStone::GreenGemStone(){
     name = "Green Gem Stone";
-    baseDmg = 5 * amount;
+    baseDmg = 5;
     critChance = 0.15;
     desc = "Attack Gem, increases Base DMG by 5 and Crit Chance by 0.15";
 }
@@ -47,8 +47,8 @@ GreenGemStone::~GreenGemStone(){}
 // Artifact 1
 StrangeElixir::StrangeElixir(){
     name = "Strange Elixir";
-    maxHp = 20 * amount;
-    hp = 20 * amount;
+    maxHp = 20;
+    hp = 20;
     desc = "Increases Max and Current HP by 20";
 }
 
@@ -59,7 +59,7 @@ StrangeElixir::~StrangeElixir(){}
 // Artifact 1
 Whetstone::Whetstone(){
     name = "Whetstone";
-    baseDmg = 10 * amount;
+    baseDmg = 10;
     desc = "Increases Base Damage by 10";
 }
 
@@ -77,7 +77,7 @@ RedGemStone::~RedGemStone(){}
 // Artifact 3
 HiddenBlade::HiddenBlade(){
     name = "Hidden Blade";
-    critChance = 0.25 * amount;
+    critChance = 0.25;
     desc = "Increases Crit Chance by 0.25";
 }
 
@@ -89,8 +89,8 @@ HiddenBlade::~HiddenBlade(){}
 // Artifact 1
 BlueGemStone::BlueGemStone(){
     name = "Red Gem Stone";
-    maxHp = 15 * amount;
-    hp = 15 * amount;
+    maxHp = 15;
+    hp = 15;
     desc = "Health Gem Stome, Increases Current and Max HP by 15";
 }
 
@@ -101,7 +101,7 @@ BlueGemStone::~BlueGemStone(){}
 // Artifact 1
 SpareBattery::SpareBattery(){
     name = "Spare Battery";
-    shieldGain = 10 * amount;
+    shieldGain = 10;
     desc = "Increases shield gain by 10";
 }
 
@@ -113,8 +113,8 @@ SpareBattery::~SpareBattery(){}
 // Artifact 1
 BookOnMonsters::BookOnMonsters(){
     name = "Book On Monsters";
-    critChance = 0.10 * amount;
-    maxHp = 20 * amount;
+    critChance = 0.10;
+    maxHp = 20;
     desc = "increases Max Hp by 20, but does not heal you. Also increases Crit Chance by 0.1";
 }
 
@@ -125,8 +125,8 @@ BookOnMonsters::~BookOnMonsters(){}
 // Artifact 1 - Reduce health and increase base damage
 ExpiredMilk::ExpiredMilk(){
     name = "Expired Milk";
-    hp = -15 * amount;
-    baseDmg = 30 * amount;
+    hp = -15;
+    baseDmg = 30;
     desc = "Decreases HP by 15 but increases Base DMG by 30";
 }
 

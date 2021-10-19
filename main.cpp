@@ -71,7 +71,7 @@ int main(void) {
 
             if (game->level > 10) {
                 game->dimensionTier++;
-                game->level = 0;
+                game->level = 1;
             }
 
             // For regular monsters, level 1-9
@@ -174,6 +174,8 @@ int main(void) {
                         refresh();
                         scanw("%s", check_char.c_str());
                     }
+
+                    game->level++;
                 
                     // Displaying player Stats after resting ground 
                     printw("PLAYER STATS\n\nHP: %i\nShields: %i\nAttack Damage: %i\nCritical Chance: %f\nEXP Level: %i\nPress anything to continue\n\n", player.getCurrentHp(), player.getShields(), player.getBaseDmg(), player.getCritChance(), player.getLevel());
@@ -200,6 +202,9 @@ int main(void) {
                 levelEnemy->init(game->dimensionTier);
                 
                 while (true) {
+                    if (levelEnemy->getCurrentHp() <= 0) { break; } 
+                    else if(player.getCurrentHp() <= 0) { goto end; }
+                    
                     player.updateShieldAmount(0);
                     randMove = rand() % 10;
                     if (levelEnemy->showNextMove() == 1) { enemyMove = "Attack"; move = 1; }
@@ -239,7 +244,7 @@ int main(void) {
                         } else if (strcmp(check_char.c_str(), "S") == 0) {
                             printw("You have chosen to Shield. Press any button to continue\n");
                             player.defend();
-                            printw("You shielded for %i damage\n", player.getShields());
+                            printw("You shielded for %i damage\n", player.getShieldGain());
                             refresh();
                             getch();
                             check = false;
@@ -252,12 +257,22 @@ int main(void) {
                             refresh();
                             scanw("%s", check_char.c_str());
                         }
-                    }
-    
-                    clear();
 
-                    if (move == 1) { player.hurt(levelEnemy->damage()); }
-                    else if (move == 0 ) { levelEnemy->defend(); }
+                        
+                    }
+
+                    if (move == 1) { 
+                        damageAmount = levelEnemy->damage();
+                        player.hurt(damageAmount);
+                        printw("Enemy Attacked for %i damage", damageAmount); 
+                    } else if (move == 0 ) { 
+                        levelEnemy->defend();
+                        printw("Enemy shielded for %i damage", levelEnemy->getShieldGain());
+                    }
+
+                    refresh();
+                    getch();
+                    clear();
 
                     if (levelEnemy->getCurrentHp() <= 0) { break; } 
                     else if(player.getCurrentHp() <= 0) { goto end; }
@@ -312,6 +327,9 @@ int main(void) {
         refresh();
         getch();
 
+
+    // delete levelEnemy;
+    delete game;
     endwin();
     return 0;
 }

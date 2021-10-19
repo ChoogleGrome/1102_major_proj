@@ -68,19 +68,21 @@ int Player::getLevel(){
 // Add artifact to the array
 bool Player::addItem(int i){
     items[i].amount++;
-    NumItems++;
-
-    this->updateMaxHP(items[i].maxHp * items[i].amount);
     
-    this->updateHP(items[i].hp * items[i].amount);
+    // updateHP(items[i].hp * items[i].amount);
+    currentHp += items[i].hp * items[i].amount;
     hp += items[i].maxHp * items[i].amount;
+    if (currentHp > hp) { currentHp = hp; }
 
-    this->updateShieldAmount(items[i].shields * items[i].amount);
-    shieldGain = items[i].shieldGain * items[i].amount;
+    // updateShieldAmount(items[i].shields * items[i].amount);
+    shields += items[i].shields * items[i].amount;
+    shieldGain += items[i].shieldGain * items[i].amount;
 
-    this->updateBaseDmg(items[i].baseDmg * items[i].amount);
-    
-    this->updateCritChance(items[i].critChance * items[i].amount);
+    // updateBaseDmg(items[i].baseDmg * items[i].amount);
+    baseDmg += items[i].baseDmg * items[i].amount;
+
+    // updateCritChance(items[i].critChance * items[i].amount);
+    critChance += items[i].critChance * items[i].amount;
 
     return true;
 }
@@ -88,7 +90,7 @@ bool Player::addItem(int i){
 
 // Defend (add shields to the player)
 void Player::defend(){
-    shields += shieldGain;
+    shields = shieldGain;
 }
 
 // Deconstructor
