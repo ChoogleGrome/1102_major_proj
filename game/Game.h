@@ -4,6 +4,8 @@
 
 class Game {
     public:
+
+        //Initialising dimensionTier and level
         int dimensionTier;
         int level;
 

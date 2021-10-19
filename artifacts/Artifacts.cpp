@@ -13,7 +13,7 @@ Artifacts::Artifacts(){
     shieldGain = 0;     // Gain of shield per usage
 
     baseDmg = 0;        // Base DMG ammount
-    critChance = 0;   // Crit Chance, value between 0-1 
+    critChance = 0;     // Crit Chance, value between 0-1 
 
     amount = 0;         // Increment based on copies of items
 }

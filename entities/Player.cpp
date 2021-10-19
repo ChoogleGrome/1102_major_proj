@@ -12,43 +12,6 @@ Player::Player(){
     critChance = 0.2;
     shields = 0;
     shieldGain = 3;
-    level = 0;
-    xp = 0;
-
-    items[0] = Herbs();
-
-    // items = new Artifacts[5];
-}
-
- 
-// Player::Player(int size){
-//     NumItems = 0;
-//     currentHp = 100;
-//     hp = 100;
-//     baseDmg = 3;
-//     critChance = 0.2;
-//     shields = 0;
-//     shieldGain = 3;
-//     level = 0;
-//     xp = 0;
-
-    
-//     items = new Artifacts[size];
-// }
-
-
-// Returns an array of the players items
-// void Player::getItems(){
-//     for (int i = 0; i < NumItems; i++){
-//         std::cout << items[i].name << ", "; 
-//     }
-//    std::cout << std::endl;
-// }
-
-
-// Shows the players current level and xp gained.s
-int Player::getXp(){
-    return xp;
 }
 
 // Adds the amount of experience from enemies
@@ -60,10 +23,6 @@ void Player::increseXp(int amount){
     }
 }
 
-// Get the player level
-int Player::getLevel(){
-    return level;
-}
 
 // Add artifact to the array
 bool Player::addItem(int i){

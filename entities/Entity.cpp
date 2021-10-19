@@ -85,31 +85,34 @@ int Entity::shieldTurnCorrode(){
 int Entity::damage() {
     float crit = ((float)(std::rand() % 101 - 1))/100; // Casting is needed is rand is int by default
 
+    // Determining whether the damage should crit or not
     if (crit < (this->critChance)) { 
         return floor(this->baseDmg * 1.5);
     } 
 
+    // Return damage
     return floor(this->baseDmg);
 }
 
 // Inflict damage to self
 void Entity::hurt(int amount){
+
+    // Determining amount of remaining damage is left once shield is broken
     int remainingDmg = this->shields - amount;
 
+    // If shield is lower than damage, set shield to zero and subtract remaining damage to hp
     if (remainingDmg <= 0) {
         this->shields = 0;
         this->currentHp -= abs(remainingDmg);
+
+    // If shield is higher than damage reduce shield only
     } else {
         this->shields -= amount;
     }
-
-    //return true;
 }
 
 // Pure virtual defend
-void Entity::defend() {
-    //return false;
-}
+void Entity::defend() {}
 
 // Deconstructor
 Entity::~Entity(){

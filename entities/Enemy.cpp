@@ -4,12 +4,11 @@
 #include "Enemy.h"
 #include "Player.h"
 
+// Enemy contructor
 
-// Constructor to create intiail attributes for enemy
-// Enemy::Enemy() { }
-
-Enemy::Enemy(std::string nm, bool isBoss, float chnc, int xp, int *moves, int numMoves, int dimensionTier, int hP, int shieldgain, int basedmg, float critchance){
-    hp = hP * dimensionTier;
+// Enemy(enemy name, ref to moves array, dimensionTier, )
+Enemy::Enemy(std::string nm, int *moves, int numMoves, int dimensionTier, int HP, int shieldgain, int basedmg, float critchance){
+    hp = HP * dimensionTier;
     currentHp = hp;
     baseDmg = basedmg * dimensionTier;
     critChance = critchance;
@@ -17,75 +16,99 @@ Enemy::Enemy(std::string nm, bool isBoss, float chnc, int xp, int *moves, int nu
     shieldGain = shieldgain * dimensionTier;
 
     name = nm;
-    boss = isBoss;
-    chance = chnc;
-    xpDrop = xp;
     moveset = moves;
     moveNum = numMoves;
 }
 
+// Setting enemy Grunt difficulty and moveset
 void Grunt::init(int dimensionTier) {
     hp *= dimensionTier;
     baseDmg *= dimensionTier;
     shieldGain *= dimensionTier;
 
+    // Enemy Moveset
+    moveset[0] = 0;
+    moveset[1] = 0;
     moveset[2] = 1;
 }
 
+// Setting enemy Slime difficulty and moveset
 void Slime::init(int dimensionTier) {
     hp *= dimensionTier;
     baseDmg *= dimensionTier;
     shieldGain *= dimensionTier;
 
+    moveset[0] = 0;
+    moveset[1] = 0;
     moveset[2] = 1;
 }
 
+// Setting enemy Assassin difficulty and moveset
 void Assassin::init(int dimensionTier) {
     hp *= dimensionTier;
     baseDmg *= dimensionTier;
     shieldGain *= dimensionTier;
 
+    // Moveset
     moveset[0] = 2;
+    moveset[1] = 0;
     moveset[2] = 2;
     moveset[3] = 1;
 }
 
+// Setting enemy Thief difficulty and moveset
 void Thief::init(int dimensionTier) {
     hp *= dimensionTier;
     baseDmg *= dimensionTier;
     shieldGain *= dimensionTier;
 
+    // Moveset
     moveset[0] = 1;
+    moveset[1] = 0;
     moveset[2] = 1;
 }
 
+// Setting enemy Tank difficulty and moveset
 void Tank::init(int dimensionTier) {
     hp *= dimensionTier;
     baseDmg *= dimensionTier;
     shieldGain *= dimensionTier;
 
+    // Moveset
+    moveset[0] = 0;
+    moveset[1] = 0;
     moveset[2] = 1;
     moveset[3] = 1;
 }
 
+// Setting enemy King Slime difficulty and moveset
 void KingSlime::init(int dimensionTier) {
     hp *= dimensionTier;
     baseDmg *= dimensionTier;
     shieldGain *= dimensionTier;
 
+    // Moveset
     moveset[0] = 1;
+    moveset[1] = 0;
     moveset[2] = 1;
     moveset[3] = 1;
     moveset[4] = 1;
     moveset[5] = 2;
+    moveset[6] = 0;
+    moveset[7] = 0;
     moveset[8] = 1;
 }
 
+// Setting enemy Dragon difficulty and moveset
 void Dragon::init(int dimensionTier) {
     hp *= dimensionTier;
     baseDmg *= dimensionTier;
     shieldGain *= dimensionTier;
 
+    // Moveset
+    moveset[0] = 0;
+    moveset[1] = 0;
+    moveset[2] = 0;
     moveset[3] = 1;
     moveset[4] = 1;
     moveset[5] = 1;
@@ -95,31 +118,27 @@ void Dragon::init(int dimensionTier) {
     moveset[9] = 1;
 }
 
+// Setting enemy Grunt difficulty and moveset
 void Angel::init(int dimensionTier) {
     hp *= dimensionTier;
     baseDmg *= dimensionTier;
     shieldGain *= dimensionTier;
 
+    // Moveset
     moveset[0] = 1;
     moveset[1] = 1;
+    moveset[2] = 0;
     moveset[3] = 1;
     moveset[4] = 2;
     moveset[5] = 2;
     moveset[6] = 1;
 }
 
-//Determines if enemy is boss or normal
-bool Enemy::isBoss(){
-    return boss;
-}
-
-//Returns the experinece droped by the enemy
-int Enemy::deathXp(){
-    return xpDrop;
-}
 
 //Shows the next move that the enemy will make
 int Enemy::showNextMove(){
+
+    // Reset move counter when it reaches the end of enemy moveset
     if (moveCounter == moveNum){
         moveCounter = 0;
     }
@@ -128,16 +147,16 @@ int Enemy::showNextMove(){
     return 0;
 }
 
+// Get the name of the enemy
 std::string Enemy::getName() {
     return name;
 }
 
 ////// Gameplay functions for the enemy //////
 
-//Enemy ability to defend itself
+//Enemy ability to defend itself, gain shields
 void Enemy::defend(){
     shields += shieldGain;
-    //return 0;
 }
 
 //Deconstructor

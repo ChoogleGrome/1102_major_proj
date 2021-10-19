@@ -31,13 +31,8 @@ class Player : public Entity {
         Player();
         // Player(int size);
 
-        // Get functions
-        // void getItems();  // Return array of items
-        int getXp();            // XP
-        int getLevel();         // Levels
-
         // Update functions
-        void increseXp(int amount);         // level up check within function
+        void increseXp(int amount); // level up check within function
         bool addItem(int index);    // Add item into array of items
 
         // Gameplay Functions

@@ -9,22 +9,17 @@ struct Player;
 
 class Enemy : public Entity {
     protected:
-        std::string name = "Empty";
-        bool boss = false;      // Is enemy a boss?
-        float chance = 0.2;     // Chance of showing up
-        int xpDrop = 10;        // Xp dropped per death
-        int moveCounter = 0; 
-        int *moveset;    
-        int moveNum; 
+        std::string name = "Empty"; // Preset name to "EMPTY"
+        int moveCounter = 0;        // Set move counter to 0, this will be used to loop through enemy moveset
+        int *moveset;               // Pointer to enemy moveset
+        int moveNum;                // Number of moves an enemy will have
     public:
 
         // Constructor
         Enemy();
-        Enemy(std::string nm, bool isBoss, float chnc, int xp, int *moves, int numMoves, int dimensionTier, int hp, int shieldgain, int basedmg, float critchance); // Movecounter = 0 
+        Enemy(std::string nm, int *moves, int numMoves, int dimensionTier, int HP, int shieldgain, int basedmg, float critchance); // Movecounter = 0 
 
         // Get Functions
-        bool isBoss();
-        int deathXp();
         int showNextMove();
         std::string getName();
 
@@ -43,8 +38,8 @@ class Enemy : public Entity {
 class Grunt : public Enemy {
 public:
 
-    // Construntor
-    Grunt(std::string nm = "GRUNT", bool isBoss = false, float chnc = 0.6, int xp = 5, int *moves = new int[3], int numMoves = 3, int dimensionTier = 1, int hp = 25, int shieldgain = 2, int basedmg = 4, float critchance = 0.1):Enemy(nm, isBoss, chnc, xp, moves, numMoves, dimensionTier, hp, shieldgain, basedmg, critchance) { };
+    // Constructor
+    Grunt(std::string nm = "GRUNT", int *moves = new int[3], int numMoves = 3, int dimensionTier = 1, int HP = 25, int shieldgain = 2, int basedmg = 4, float critchance = 0.1):Enemy(nm, moves, numMoves, dimensionTier, HP, shieldgain, basedmg, critchance) { };
     void init(int dimensionTier);
 };
 
@@ -53,7 +48,7 @@ class Slime : public Enemy {
 public:
 
     // Constructor
-    Slime(std::string nm = "SLIME", bool isBoss = false, float chnc = 0.75, int xp = 8, int *moves = new int[5], int numMoves = 5, int dimensionTier = 1, int hp = 30, int shieldgain = 3, int basedmg = 4, float critchance = 0.25):Enemy(nm, isBoss, chnc, xp, moves, numMoves, dimensionTier, hp, shieldgain, basedmg, critchance) { };
+    Slime(std::string nm = "SLIME", int *moves = new int[5], int numMoves = 5, int dimensionTier = 1, int HP = 30, int shieldgain = 3, int basedmg = 4, float critchance = 0.25):Enemy(nm, moves, numMoves, dimensionTier, HP, shieldgain, basedmg, critchance) { };
     void init(int dimensionTier);
 };
 
@@ -62,16 +57,8 @@ class Assassin : public Enemy {
 public:
 
     // Constructor
-    Assassin(std::string nm = "ASSASIN", bool isBoss = false, float chnc = 0.4, int xp = 10, int *moves = new int[4], int numMoves = 4, int dimensionTier = 1, int hp = 15, int shieldgain = 1, int basedmg = 6, float critchance = 0.75):Enemy(nm, isBoss, chnc, xp, moves, numMoves, dimensionTier, hp, shieldgain, basedmg, critchance) { };
+    Assassin(std::string nm = "ASSASSIN", int *moves = new int[4], int numMoves = 4, int dimensionTier = 1, int HP = 15, int shieldgain = 1, int basedmg = 6, float critchance = 0.75):Enemy(nm, moves, numMoves, dimensionTier, HP, shieldgain, basedmg, critchance) { };
     void init(int dimensionTier);
-    // Attributes
-    // std::string name = "Assasin";
-    // float chance = 0.4;
-    // int xpDrop = 10;
-    // int moveset[4] = {2, 0, 2, 1};
-    // int moveNum = 4;
-
-    // Deconstructor
 };
 
 // Enemy Four
@@ -79,18 +66,8 @@ class Thief : public Enemy {
 public:
 
     // Constructor
-    Thief(std::string nm = "THIEF", bool isBoss = false, float chnc = 0.45, int xp = 2, int *moves = new int[3], int numMoves = 3, int dimensionTier = 1, int hp = 15, int shieldgain = 2, int basedmg = 6, float critchance = 0.4):Enemy(nm, isBoss, chnc, xp, moves, numMoves, dimensionTier, hp, shieldgain, basedmg, critchance) { };
+    Thief(std::string nm = "THIEF", int *moves = new int[3], int numMoves = 3, int dimensionTier = 1, int HP = 15, int shieldgain = 2, int basedmg = 6, float critchance = 0.4):Enemy(nm, moves, numMoves, dimensionTier, HP, shieldgain, basedmg, critchance) { };
     void init(int dimensionTier);
-
-    // Attributes
-    // std::string name = "Theif";
-    // float chance = 0.45;
-    // int xpDrop = 2;
-    // int moveset[3] = {1, 0, 1};
-    // int moveNum = 3;
-
-    // Deconstructor
-    // ~Theif();
 };
 
 // Enemy Five
@@ -98,18 +75,8 @@ class Tank : public Enemy {
 public:
 
     // Constructor
-    Tank(std::string nm = "TANK", bool isBoss = false, float chnc = 0.3, int xp = 13, int *moves = new int[7], int numMoves = 7, int dimensionTier = 1, int hp = 80, int shieldgain = 7, int basedmg = 3, float critchance = 0.05):Enemy(nm, isBoss, chnc, xp, moves, numMoves, dimensionTier, hp, shieldgain, basedmg, critchance) { };
+    Tank(std::string nm = "TANK", int *moves = new int[7], int numMoves = 7, int dimensionTier = 1, int HP = 80, int shieldgain = 7, int basedmg = 3, float critchance = 0.05):Enemy(nm, moves, numMoves, dimensionTier, HP, shieldgain, basedmg, critchance) { };
     void init(int dimensionTier);
-
-    // Attributes
-    // std::string name = "Tank";
-    // float chance = 0.3;
-    // int xpDrop = 13;
-    // int moveset[7] = {0, 0, 1, 1, 0, 0, 0};
-    // int moveNum = 7;
-
-    // Deconstructor
-    // ~Tank();
 };
 
 //// Boss Enemies /////
@@ -119,19 +86,8 @@ class KingSlime : public Enemy {
 public:
 
     // Constructor
-    KingSlime(std::string nm = "KING SLIME", bool isBoss = true, float chnc = 0.5, int xp = 25, int *moves = new int[10], int numMoves = 10, int dimensionTier = 1, int hp = 150, int shieldgain = 15, int basedmg = 6, float critchance = 0.3):Enemy(nm, isBoss, chnc, xp, moves, numMoves, dimensionTier, hp, shieldgain, basedmg, critchance) { };
+    KingSlime(std::string nm = "KING SLIME", int *moves = new int[10], int numMoves = 10, int dimensionTier = 1, int HP = 150, int shieldgain = 15, int basedmg = 6, float critchance = 0.3):Enemy(nm, moves, numMoves, dimensionTier, HP, shieldgain, basedmg, critchance) { };
     void init(int dimensionTier);
-
-    // Attributes
-    // std::string name = "King Slime";
-    // bool boss = true;
-    // float chance = 0.5;
-    // int xpDrop = 25;
-    // int moveset[10] = {1, 0, 1, 1, 0, 1, 2, 0, 1, 0};
-    // int moveNum = 10;
-
-    // Deconstructor
-    // ~KingSlime();
 };
 
 // Boss Two
@@ -139,19 +95,8 @@ class Dragon : public Enemy {
 public:   
 
     // Constructor
-    Dragon(std::string nm = "DRAGON", bool isBoss = true, float chnc = 0.3, int xp = 25, int *moves = new int[10], int numMoves = 10, int dimensionTier = 1, int hp = 150, int shieldgain = 5, int basedmg = 8, float critchance = 0.23):Enemy(nm, isBoss, chnc, xp, moves, numMoves, dimensionTier, hp, shieldgain, basedmg, critchance) { };
+    Dragon(std::string nm = "DRAGON", int *moves = new int[10], int numMoves = 10, int dimensionTier = 1, int HP = 150, int shieldgain = 5, int basedmg = 8, float critchance = 0.23):Enemy(nm, moves, numMoves, dimensionTier, HP, shieldgain, basedmg, critchance) { };
     void init(int dimensionTier);
-
-    // Attributes
-    // std::string name = "Dragon";
-    // bool boss = true;
-    // float chance = 0.3;
-    // int xpDrop = 25;
-    // int moveset[10] = {0, 0, 0, 1, 1, 1, 1, 1, 1, 1};
-    // int moveNum = 10;
-
-    // Deconstructor
-    // ~Dragon();
 };
 
 // Boss Three
@@ -159,19 +104,8 @@ class Angel : public Enemy {
 public:
 
     // Constructor
-    Angel(std::string nm = "ANGEL", bool isBoss = true, float chnc = 0.6, int xp = 25, int *moves = new int[8], int numMoves = 8, int dimensionTier = 1, int hp = 150, int shieldgain = 3, int basedmg = 10, float critchance = 0.35):Enemy(nm, isBoss, chnc, xp, moves, numMoves, dimensionTier, hp, shieldgain, basedmg, critchance) { };
+    Angel(std::string nm = "ANGEL", int *moves = new int[8], int numMoves = 8, int dimensionTier = 1, int HP = 150, int shieldgain = 3, int basedmg = 10, float critchance = 0.35):Enemy(nm, moves, numMoves, dimensionTier, HP, shieldgain, basedmg, critchance) { };
     void init(int dimensionTier);
-
-    // Attributes
-    // std::string name = "Angel";
-    // bool boss = true;
-    // float chance = 0.6;
-    // int xpDrop = 25;
-    // int moveset[8] = {1, 1, 0, 1, 2, 2, 1, 0};
-    // int moveNum = 8;
-
-    // Deconstructor
-    // ~Angel();
 };
 
 
