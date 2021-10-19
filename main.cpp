@@ -69,6 +69,11 @@ int main(void) {
             Dragon dragon;
             Angel angel;
 
+            if (game->level > 10) {
+                game->dimensionTier++;
+                game->level = 0;
+            }
+
             // For regular monsters, level 1-9
             if (game->level < 10) {
                 randEnemy = rand() % 300;
@@ -267,6 +272,7 @@ int main(void) {
                     for (int i = 0; i < 10; i++) {
                         printw("%i | %s (%s) \n", player.items[i].amount, player.items[i].name.c_str(), player.items[i].desc.c_str());
                     }
+                    game->level++;
 
                     printw("To Continue, press 'C', to end this run, press 'E'\n");
                     refresh();
