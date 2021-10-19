@@ -23,6 +23,7 @@ Enemy::Enemy(std::string nm, int *moves, int numMoves, int dimensionTier, int HP
 // Setting enemy Grunt difficulty and moveset
 void Grunt::init(int dimensionTier) {
     hp *= dimensionTier;
+    currentHp = hp;
     baseDmg *= dimensionTier;
     shieldGain *= dimensionTier;
 
@@ -35,6 +36,7 @@ void Grunt::init(int dimensionTier) {
 // Setting enemy Slime difficulty and moveset
 void Slime::init(int dimensionTier) {
     hp *= dimensionTier;
+    currentHp = hp;
     baseDmg *= dimensionTier;
     shieldGain *= dimensionTier;
 
@@ -46,6 +48,7 @@ void Slime::init(int dimensionTier) {
 // Setting enemy Assassin difficulty and moveset
 void Assassin::init(int dimensionTier) {
     hp *= dimensionTier;
+    currentHp = hp;
     baseDmg *= dimensionTier;
     shieldGain *= dimensionTier;
 
@@ -59,6 +62,7 @@ void Assassin::init(int dimensionTier) {
 // Setting enemy Thief difficulty and moveset
 void Thief::init(int dimensionTier) {
     hp *= dimensionTier;
+    currentHp = hp;
     baseDmg *= dimensionTier;
     shieldGain *= dimensionTier;
 
@@ -71,6 +75,7 @@ void Thief::init(int dimensionTier) {
 // Setting enemy Tank difficulty and moveset
 void Tank::init(int dimensionTier) {
     hp *= dimensionTier;
+    currentHp = hp;
     baseDmg *= dimensionTier;
     shieldGain *= dimensionTier;
 
@@ -84,6 +89,7 @@ void Tank::init(int dimensionTier) {
 // Setting enemy King Slime difficulty and moveset
 void KingSlime::init(int dimensionTier) {
     hp *= dimensionTier;
+    currentHp = hp;
     baseDmg *= dimensionTier;
     shieldGain *= dimensionTier;
 
@@ -102,6 +108,7 @@ void KingSlime::init(int dimensionTier) {
 // Setting enemy Dragon difficulty and moveset
 void Dragon::init(int dimensionTier) {
     hp *= dimensionTier;
+    currentHp = hp;
     baseDmg *= dimensionTier;
     shieldGain *= dimensionTier;
 
@@ -121,6 +128,7 @@ void Dragon::init(int dimensionTier) {
 // Setting enemy Grunt difficulty and moveset
 void Angel::init(int dimensionTier) {
     hp *= dimensionTier;
+    currentHp = hp;
     baseDmg *= dimensionTier;
     shieldGain *= dimensionTier;
 

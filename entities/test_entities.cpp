@@ -72,6 +72,7 @@ int main()
     std::cout << player.getCurrentHp() << std::endl;
 
     std::cout << enemy->getName() << std::endl;
+    std::cout << enemy->getHP() << std::endl;
 
     std::cout << enemy->showNextMove() << std::endl; 
     std::cout << enemy->showNextMove() << std::endl; 

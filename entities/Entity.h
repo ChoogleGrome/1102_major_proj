@@ -15,7 +15,7 @@ class Entity {
         
         // Return Functions
         int getHP();            // Get max hp
-        int getCurrentHp();     // Geturns current health
+        int getCurrentHp();     // Returns current health
         int getShields();       // Get shield
         int getShieldGain();    // Get the amount of shield gain
         int getBaseDmg();       // Get base damage

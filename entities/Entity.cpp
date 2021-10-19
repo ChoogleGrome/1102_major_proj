@@ -8,12 +8,12 @@ Entity::Entity(){
 
 }
 
-// Return hp
+// Return max hp
 int Entity::getHP(){
     return hp;
 }
 
-// Return max hp
+// Return current hp
 int Entity::getCurrentHp(){
     return currentHp;
 }
