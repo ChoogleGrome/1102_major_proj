@@ -50,66 +50,118 @@ int main(void) {
     //////////////////////////////////////////////// INTRO SCREEN END //////////////////////////////////////////////////
 
     Player player;
+    Grunt grunt;
+    Slime slime;
+    Assassin assassin;
+    Thief thief;
+    Tank tank;
+    KingSlime kingSlime;
+    Dragon dragon;
+    Angel angel;
+
     int randEnemy = 0;
     Enemy *levelEnemy;
     while (player.getCurrentHp() > 0) {
-        while (true) {
-            if (game->level < 10) { // Add fireplace room
-                //randEnemy = rand() % 300;
-                //randEnemy = 0;
 
+        // Displaying player Stats
+        printw("PLAYER STATS\n\nHP: %i\nShields: %i\nAttack Damage: %i\nCritical Chance: %f\nEXP Level: %i\n\n\n", player.getCurrentHp(), player.getShields(), player.getBaseDmg(), player.getCritChance(), player.getLevel());
+        refresh();
+
+        while (true) {
+
+            // For regular monsters, level 1-9
+            if (game->level < 10) {
+                randEnemy = rand() % 300;
+                //randEnemy = 280;
+
+                // Set nevel enemy to grunt
                 if (randEnemy < 60) {
-                    Grunt grunt;
                     levelEnemy = &grunt;
 
+                // Set level enemy to slime
                 } else if (randEnemy < 135 && randEnemy >= 60) {
-                    Slime slime;
                     levelEnemy = &slime;
+
+                // Set level enemy to assasin
                 } else if (randEnemy < 175 && randEnemy >= 135) {
-                    Assassin assassin;
                     levelEnemy = &assassin;
+
+                // Set level enemy to thief
                 } else if (randEnemy < 220 && randEnemy >= 175) {
-                    Thief thief;
                     levelEnemy = &thief;
+
+                // Set level enemy to tank
                 } else if (randEnemy < 250 && randEnemy >= 220) {
-                    Tank tank;
                     levelEnemy = &tank;
+
+                // This will go to the campfire, gain hp or attack
                 }  else if (randEnemy <= 300 && randEnemy >= 250) {
                     randEnemy = 275; 
+                
+                // 
                 } else {
                     return 1;
                 }
+
+            // Determine boss on level 10
             } else {
                 randEnemy = rand() % 140;
-
+                
+                // Set level enemy to king slime
                 if (randEnemy < 50) {
-                    KingSlime kingSlime;
                     levelEnemy = &kingSlime;
+
+                // Set level enemy to dragon
                 } else if (randEnemy < 110 && randEnemy >= 50) {
-                    Dragon dragon;
                     levelEnemy = &dragon;
+
+                // Set level enemy to angel
                 } else if (randEnemy <= 140 && randEnemy >= 110) {
-                    Angel angel;
                     levelEnemy = &angel;
+                
+                // 
                 } else {
                     return 1;
                 }
             }
 
+            // Play out campfire scenario, where player can either gain hp or increase base attack damage
             if (randEnemy >= 250) {
+
+                // Display text option for player
                 printw("You have Reached a Resting Ground\nChoose between Recover HP (H) or Increase Damage (D)\n");
                 refresh();
                 scanw("%s", check_char.c_str());
+
+
                 check = true;
                 while (check) {
+
+                    // Code for player restoring hp
                     if (strcmp(check_char.c_str(), "H") == 0) {
                         printw("You have chosen to Recover HP, HP healed by 20. Press anything to continue");
+                        refresh();
+                        getch();
+
+                        // Add 20 hp to player
                         player.updateHP(20);
+
+                        // Exit code
                         break;
+                    
+                    // Code for player increasing their base damage
                     } else if (strcmp(check_char.c_str(), "D") == 0) {
                         printw("You have chosen to Increase Damage, Attack Damage increased by 2. Press anything to continue");
+                        refresh();
+                        getch();
+
+                        // Add 2 damage to player
                         player.updateBaseDmg(2);
+
+                        // Exit code
                         break;
+
+                    // Code for incorrect input
                     } else {
                         // printw("%s\n", check_char.c_str());
                         printw("Incorrect Input, Try Again\n");
@@ -117,31 +169,54 @@ int main(void) {
                         refresh();
                         scanw("%s", check_char.c_str());
                     }
+                
+                    // Displaying player Stats after resting ground 
+                    printw("PLAYER STATS\n\nHP: %i\nShields: %i\nAttack Damage: %i\nCritical Chance: %f\nEXP Level: %i\nPress anything to continue\n\n", player.getCurrentHp(), player.getShields(), player.getBaseDmg(), player.getCritChance(), player.getLevel());
+                    refresh();
+                    scanw("%s", check_char.c_str());
+                    clear();
+
                 }
 
                 getch();
                 clear();
                 return 1;
             } else {
-                string enemyMove;
-                int randMove = rand() % 10;
-                int move;
-                levelEnemy->init(game->dimensionTier);
-                printw("PLAYER\nHP: %i\nShields: %i\nAttack Damage: %i\nCritical Chance: %f\nEXP Level: %i\n", player.getCurrentHp(), player.getShields(), player.getBaseDmg(), player.getCritChance(), player.getLevel());
                 
+                // To convert enemy move into a string text
+                string enemyMove;
+                
+                // randMove is for scenario where enemy will have a random moveset
+                int randMove = rand() % 10;
+                
+                // move is used during combat phase
+                int move;
+
+                // Create enemy difficulty depening on dimensionTier
+                levelEnemy->init(game->dimensionTier);
+
+
+                // Displaying stats during combat
+                printw("PLAYER\n\nHP: %i\nShields: %i\n\n", player.getCurrentHp(), player.getShields());
+                refresh();
+
                 if (levelEnemy->showNextMove() == 1) { enemyMove = "Attack"; move = 1; }
-                else if (levelEnemy->showNextMove() == 0) { enemyMove = "Shield"; move = 0; }
+                else if (levelEnemy->showNextMove() == 0) { enemyMove = "Defend"; move = 0; }
+                
+                // For enemies with moveset number = 2, hidden move
                 else if (levelEnemy->showNextMove() == 2 ) { 
+                    
                     if (randMove < 5) {
-                        enemyMove = "Attack";
+                        enemyMove = "Hidden Move";
                         move = 1;
                     } else {
-                        enemyMove = "Defend";
+                        enemyMove = "Hidden Move";
                         move = 0;
                     }
                  }
                 
-                printw("%s\nHP: %i\nShields: %i\nAttack Damage: %i\nCritical Chance: %f\nNext Move: %s\n", levelEnemy->getName().c_str(), levelEnemy->getHP(), levelEnemy->getBaseDmg(), levelEnemy->getCritChance(), enemyMove.c_str());
+                printw("%s\n\nHP: %i\nShields: %i\nNext Move: %s\n", levelEnemy->getName().c_str(), levelEnemy->getHP(), levelEnemy->getShields(), enemyMove.c_str());
+                refresh();
             }
             
             

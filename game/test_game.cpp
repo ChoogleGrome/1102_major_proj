@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <stdlib.h>
 #include "../artifacts/Artifacts.h"
 #include "../entities/Entity.h"
 #include "../entities/Enemy.h"
@@ -90,6 +91,8 @@ int main()
         std::cout << std::endl << std::endl << std::endl << std::endl;
 
         i++;
+
+        system("clear");
     }
     
     return 0;
