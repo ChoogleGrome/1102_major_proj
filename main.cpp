@@ -61,9 +61,6 @@ int main(void) {
                 if (randEnemy < 60) {
                     Grunt grunt;
                     levelEnemy = &grunt;
-                    levelEnemy->init(1);
-                    printw("%s\nHP: %i\n", levelEnemy->getName().c_str(),levelEnemy->getHP());
-                    return 0;
 
                 } else if (randEnemy < 135 && randEnemy >= 60) {
                     Slime slime;
@@ -124,7 +121,7 @@ int main(void) {
 
                 getch();
                 clear();
-                break;
+                return 1;
             } else {
                 string enemyMove;
                 int randMove = rand() % 10;
