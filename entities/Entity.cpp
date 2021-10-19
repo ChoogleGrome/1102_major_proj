@@ -81,7 +81,7 @@ int Entity::damage() {
 
     if (crit < (this->critChance)) { 
         return floor(this->baseDmg * 1.5);
-    }
+    } 
 
     return floor(this->baseDmg);
 }

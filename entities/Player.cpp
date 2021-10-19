@@ -8,7 +8,7 @@ Player::Player(){
     NumItems = 0;
     currentHp = 100;
     hp = 100;
-    baseDmg = 3;
+    baseDmg = 10;
     critChance = 0.2;
     shields = 0;
     shieldGain = 3;

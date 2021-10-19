@@ -26,6 +26,7 @@ Artifacts::~Artifacts(){}
 Herbs::Herbs(){
     name = "Herbs";
     hp = 50 * amount;
+    desc = "Increases Current Health by 50";
 }
 
 Herbs::~Herbs(){}
@@ -34,6 +35,8 @@ Herbs::~Herbs(){}
 GreenGemStone::GreenGemStone(){
     name = "Green Gem Stone";
     baseDmg = 5 * amount;
+    critChance = 0.15;
+    desc = "Attack Gem, increases Base DMG by 5 and Crit Chance by 0.15";
 }
 
 GreenGemStone::~GreenGemStone(){}
@@ -46,6 +49,7 @@ StrangeElixir::StrangeElixir(){
     name = "Strange Elixir";
     maxHp = 20 * amount;
     hp = 20 * amount;
+    desc = "Increases Max and Current HP by 20";
 }
 
 StrangeElixir::~StrangeElixir(){}
@@ -56,6 +60,7 @@ StrangeElixir::~StrangeElixir(){}
 Whetstone::Whetstone(){
     name = "Whetstone";
     baseDmg = 10 * amount;
+    desc = "Increases Base Damage by 10";
 }
 
 Whetstone::~Whetstone(){}
@@ -63,7 +68,8 @@ Whetstone::~Whetstone(){}
 // Artifact 2
 RedGemStone::RedGemStone(){
     name = "Red Gem Stone";
-    baseDmg = 5 * amount;
+    shieldGain = 5;
+    desc = "Shield Gem Stone, Increases shield gain by 5";
 }
 
 RedGemStone::~RedGemStone(){}
@@ -71,7 +77,8 @@ RedGemStone::~RedGemStone(){}
 // Artifact 3
 HiddenBlade::HiddenBlade(){
     name = "Hidden Blade";
-    baseDmg = 10 * amount;
+    critChance = 0.25 * amount;
+    desc = "Increases Crit Chance by 0.25";
 }
 
 HiddenBlade::~HiddenBlade(){}
@@ -82,7 +89,9 @@ HiddenBlade::~HiddenBlade(){}
 // Artifact 1
 BlueGemStone::BlueGemStone(){
     name = "Red Gem Stone";
-    shields = 5 * amount;
+    maxHp = 15 * amount;
+    hp = 15 * amount;
+    desc = "Health Gem Stome, Increases Current and Max HP by 15";
 }
 
 BlueGemStone::~BlueGemStone(){}
@@ -93,6 +102,7 @@ BlueGemStone::~BlueGemStone(){}
 SpareBattery::SpareBattery(){
     name = "Spare Battery";
     shieldGain = 10 * amount;
+    desc = "Increases shield gain by 10";
 }
 
 SpareBattery::~SpareBattery(){}
@@ -104,6 +114,8 @@ SpareBattery::~SpareBattery(){}
 BookOnMonsters::BookOnMonsters(){
     name = "Book On Monsters";
     critChance = 0.10 * amount;
+    maxHp = 20 * amount;
+    desc = "increases Max Hp by 20, but does not heal you. Also increases Crit Chance by 0.1";
 }
 
 BookOnMonsters::~BookOnMonsters(){}
@@ -114,7 +126,8 @@ BookOnMonsters::~BookOnMonsters(){}
 ExpiredMilk::ExpiredMilk(){
     name = "Expired Milk";
     hp = -15 * amount;
-    baseDmg = 10 * amount;
+    baseDmg = 30 * amount;
+    desc = "Decreases HP by 15 but increases Base DMG by 30";
 }
 
 ExpiredMilk::~ExpiredMilk(){}

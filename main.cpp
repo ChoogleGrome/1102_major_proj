@@ -56,8 +56,8 @@ int main(void) {
     while (player.getCurrentHp() > 0) {
 
         // Displaying player Stats
-        printw("PLAYER STATS\n\nHP: %i\nShields: %i\nAttack Damage: %i\nCritical Chance: %f\nEXP Level: %i\n\n\n", player.getCurrentHp(), player.getShields(), player.getBaseDmg(), player.getCritChance(), player.getLevel());
-        refresh();
+        // printw("PLAYER STATS\n\nHP: %i\nShields: %i\nAttack Damage: %i\nCritical Chance: %f\nEXP Level: %i\n\n\n", player.getCurrentHp(), player.getShields(), player.getBaseDmg(), player.getCritChance(), player.getLevel());
+        // refresh();
 
         while (true) {
             Grunt grunt;
@@ -173,11 +173,10 @@ int main(void) {
                     // Displaying player Stats after resting ground 
                     printw("PLAYER STATS\n\nHP: %i\nShields: %i\nAttack Damage: %i\nCritical Chance: %f\nEXP Level: %i\nPress anything to continue\n\n", player.getCurrentHp(), player.getShields(), player.getBaseDmg(), player.getCritChance(), player.getLevel());
                     refresh();
-                    scanw("%s", check_char.c_str());
+                    getch();
                     clear();
                 }
 
-                getch();
                 clear();
                 break;
             } else {
@@ -214,42 +213,49 @@ int main(void) {
 
                     // Displaying stats during combat
                     printw("Level %i, Dimension %i\n\n", game->level, game->dimensionTier);
-                    printw("PLAYER\n\nHP: %i\nShields: %i\n\n", player.getCurrentHp(), player.getShields());
-                    printw("%s\n\nHP: %i\nShields: %i\nNext Move: %s\n", levelEnemy->getName().c_str(), levelEnemy->getCurrentHp(), levelEnemy->getShields(), enemyMove.c_str());
+                    // printw("PLAYER\n\nHP: %i\nShields: %i\n\n", player.getCurrentHp(), player.getShields());
+                    printw("PLAYER STATS\nHP: %i\nShields: %i\nAttack Damage: %i\nCritical Chance: %f\nEXP Level: %i\n\n", player.getCurrentHp(), player.getShields(), player.getBaseDmg(), player.getCritChance(), player.getLevel());
+                    printw("%s\nHP: %i\nShields: %i\nNext Move: %s\n", levelEnemy->getName().c_str(), levelEnemy->getCurrentHp(), levelEnemy->getShields(), enemyMove.c_str());
                     printw("Would you like to Attack (A) or Shield (S)\n");
                     refresh();
                     scanw("%s", check_char.c_str());
-                    if (strcmp(check_char.c_str(), "A") == 0) {
-                        printw("You have chosen to Attack. Press any button to continue\n");
-                        damageAmount = player.damage();
-                        printw("Attacked for %i damage\n", damageAmount);
-                        levelEnemy->hurt(player.damage());
-                        refresh();
-                        getch();
-                    
-                    // Code for player increasing their base damage
-                    } else if (strcmp(check_char.c_str(), "S") == 0) {
-                        printw("You have chosen to Shield. Press any button to continue\n");
-                        player.defend();
-                        printw("You shielded for %i damage\n", player.getShields());
-                        refresh();
-                        getch();
+                    check = true;
+                    while(check) {
+                        if (strcmp(check_char.c_str(), "A") == 0) {
+                            printw("You have chosen to Attack. Press any button to continue\n");
+                            damageAmount = player.damage();
+                            printw("Attacked for %i damage\n", damageAmount);
+                            levelEnemy->hurt(player.damage());
+                            refresh();
+                            getch();
+                            check = false;
+                        
+                        // Code for player increasing their base damage
+                        } else if (strcmp(check_char.c_str(), "S") == 0) {
+                            printw("You have chosen to Shield. Press any button to continue\n");
+                            player.defend();
+                            printw("You shielded for %i damage\n", player.getShields());
+                            refresh();
+                            getch();
+                            check = false;
 
-                    // Code for incorrect input
-                    } else {
-                        // printw("%s\n", check_char.c_str());
-                        printw("Incorrect Input, Try Again\n");
-                        printw("Please enter 'A' to Attack HP or 'S' to Shield\n");
-                        refresh();
-                        scanw("%s", check_char.c_str());
+                        // Code for incorrect input
+                        } else {
+                            // printw("%s\n", check_char.c_str());
+                            printw("Incorrect Input, Try Again\n");
+                            printw("Please enter 'A' to Attack HP or 'S' to Shield\n");
+                            refresh();
+                            scanw("%s", check_char.c_str());
+                        }
                     }
-
+    
                     clear();
 
                     if (move == 1) { player.hurt(levelEnemy->damage()); }
                     else if (move == 0 ) { levelEnemy->defend(); }
 
-                    if (levelEnemy->getCurrentHp() <= 0 || player.getCurrentHp() <= 0) { break; }
+                    if (levelEnemy->getCurrentHp() <= 0) { break; } 
+                    else if(player.getCurrentHp() <= 0) { goto end; }
                 }
 
                 int randArtifact = (rand() % 10) - 1;
@@ -259,40 +265,44 @@ int main(void) {
                     player.addItem(randArtifact);
                     printw("Artifacts:\n");
                     for (int i = 0; i < 10; i++) {
-                        printw("%s | %i\n", player.items[i].name.c_str(), player.items[i].amount);
+                        printw("%i | %s (%s) \n", player.items[i].amount, player.items[i].name.c_str(), player.items[i].desc.c_str());
                     }
 
                     printw("To Continue, press 'C', to end this run, press 'E'\n");
                     refresh();
                     scanw("%s", check_char.c_str());
 
-                    if (strcmp(check_char.c_str(), "C") == 0) { break; } 
-                    else if (strcmp(check_char.c_str(), "E") == 0) {
-                        player.updateHP(0);
-                        break;
-                    } else {
-                        // printw("%s\n", check_char.c_str());
-                        printw("Incorrect Input, Try Again\n");
-                        printw("Please enter 'C' to Continue or 'E' to End\n");
-                        refresh();
-                        scanw("%s", check_char.c_str());
+                    check = true;
+                    while(check) {
+                        if (strcmp(check_char.c_str(), "C") == 0) { check = false; } 
+                        else if (strcmp(check_char.c_str(), "E") == 0) {
+                            goto end;
+                        } else {
+                            // printw("%s\n", check_char.c_str());
+                            printw("Incorrect Input, Try Again\n");
+                            printw("Please enter 'C' to Continue or 'E' to End\n");
+                            refresh();
+                            scanw("%s", check_char.c_str());
+                        }
                     }
+                    clear();
                 } else if (player.getCurrentHp() <= 0) {
-                    printw("You have died\n");
-                    break;
+                    printw("You have died\nPress Any Key to Continue\n");
+                    getch();
+                    clear();
+                    goto end;
                 }
             }
-            
-            if (player.getCurrentHp() <= 0) { break; }
+
             // printw("PLAYER\nHP: %i\nShields: %i\nAttack Damage: %i\nCritical Chance: %f\nEXP Level: %i\n", player.getCurrentHp(), player.getShields(), player.getBaseDmg(), player.getCritChance(), player.getLevel());
         }
     }
 
     // Death Stuff
-    printw("Thank you for playing Madrage: Dungeon Deluxe NEW Edition\n");
-    refresh();
-    getch();
-
+    end: 
+        printw("Thank you for playing Madrage: Dungeon Deluxe NEW Edition. Press Any Key to exit\n");
+        refresh();
+        getch();
 
     endwin();
     return 0;

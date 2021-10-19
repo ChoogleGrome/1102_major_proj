@@ -21,7 +21,8 @@ class Artifacts {
         float critChance;   // Crit Chance, value between 0-1 
 
         int amount = 0;         // Increment based on copies of items
-
+        
+        std::string desc;
         ~Artifacts();
 };
 
