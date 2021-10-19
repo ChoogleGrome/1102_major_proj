@@ -38,6 +38,12 @@ float Entity::getCritChance(){
     return critChance;
 }
 
+
+int Entity::updateMaxHP(int amount){
+    hp += amount;
+    return hp;
+}
+
 // Update Functions
 int Entity::updateHP(int amount){
     currentHp += amount;

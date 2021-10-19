@@ -24,6 +24,7 @@ class Entity {
         int damage();           // Calculate how much damage to deal to opponent
 
         // Update Functions
+        int updateMaxHP(int amount);
         int updateHP(int amount);           // Update Hp
         int updateShields(int amount);      // Update shields
         int updateShieldAmount(int amount); // Update shield gain amount

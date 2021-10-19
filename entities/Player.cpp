@@ -69,12 +69,19 @@ int Player::getLevel(){
 bool Player::addItem(int i){
     items[i].amount++;
     NumItems++;
+
+    this->updateMaxHP(items[i].maxHp * items[i].amount);
+    
     this->updateHP(items[i].hp * items[i].amount);
     hp += items[i].maxHp * items[i].amount;
+
     this->updateShieldAmount(items[i].shields * items[i].amount);
     shieldGain = items[i].shieldGain * items[i].amount;
-    updateBaseDmg(items[i].baseDmg * items[i].amount);
-    updateCritChance(items[i].critChance * items[i].amount);
+
+    this->updateBaseDmg(items[i].baseDmg * items[i].amount);
+    
+    this->updateCritChance(items[i].critChance * items[i].amount);
+
     return true;
 }
 

@@ -230,7 +230,7 @@ int main(void) {
                             printw("You have chosen to Attack. Press any button to continue\n");
                             damageAmount = player.damage();
                             printw("Attacked for %i damage\n", damageAmount);
-                            levelEnemy->hurt(player.damage());
+                            levelEnemy->hurt(damageAmount);
                             refresh();
                             getch();
                             check = false;
@@ -263,11 +263,13 @@ int main(void) {
                     else if(player.getCurrentHp() <= 0) { goto end; }
                 }
 
-                int randArtifact = (rand() % 10) - 1;
+                int randArtifact = (rand() % 10);
                 if (levelEnemy->getCurrentHp() <= 0) {
                     printw("You have defeated the Enemy, Congrats!\n");
-                    printw("You have receieved a %s\n", player.items[randArtifact].name.c_str());                    
+                    printw("You have receieved a %s\n", player.items[randArtifact].name.c_str());   
+
                     player.addItem(randArtifact);
+                    
                     printw("Artifacts:\n");
                     for (int i = 0; i < 10; i++) {
                         printw("%i | %s (%s) \n", player.items[i].amount, player.items[i].name.c_str(), player.items[i].desc.c_str());
