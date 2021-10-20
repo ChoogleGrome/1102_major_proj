@@ -1,9 +1,9 @@
 game_test:
 	clang++ -std=c++11 ./entities/Entity.cpp ./entities/Player.cpp ./entities/Enemy.cpp ./artifacts/Artifacts.cpp ./game/Game.cpp ./game/test_game.cpp -o a.out
-	./a.out < inputGame01.txt > outputGame01.txt
-	diff outputGame01.txt gameChecker01.txt
-	./a.out < inputGame02.txt > outputGame02.txt
-	diff outputGame02.txt gameChecker02.txt
+	./a.out < ./testFiles/inputGame01.txt > ./testFiles/outputGame01.txt
+	diff ./testFiles/outputGame01.txt ./testFiles/gameChecker01.txt
+	./a.out < ./testFiles/inputGame02.txt > ./testFiles/outputGame02.txt
+	diff ./testFiles/outputGame02.txt ./testFiles/gameChecker02.txt
 
 artifacts_test:
 	clang++ -std=c++11 ./entities/Entity.cpp ./entities/Player.cpp ./artifacts/Artifacts.cpp ./artifacts/test_artifacts.cpp -o a.out
