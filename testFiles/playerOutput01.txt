@@ -1,0 +1,6 @@
+Player Max HP: 100
+Player current HP: 100
+Player Crit Chance: 0.2
+Player Shield Gain: 0
+Player Shields: 3
+Player Damage: 10
