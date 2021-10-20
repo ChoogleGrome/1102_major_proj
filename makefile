@@ -11,11 +11,11 @@ entities_test:
 	./a.out
 
 player_test:
-	clang++ ./entities/Entity.cpp ./entities/Player.cpp ./entities/test_entities.cpp -o a.out
+	clang++ -std=c++11 ./entities/Entity.cpp ./entities/Player.cpp ./artifacts/Artifacts.cpp ./entities/test_player.cpp -o a.out
 	./a.out
 
-enemy_test:
-	clang++ ./entities/Entity.cpp ./entities/Enemy.cpp ./entities/test_entities.cpp -o a.out
+enemies_test:
+	clang++ -std=c++11 ./entities/Entity.cpp ./entities/Enemy.cpp ./entities/test_enemies.cpp -o a.out
 	./a.out
 
 main:
