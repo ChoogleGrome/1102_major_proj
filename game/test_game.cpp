@@ -91,8 +91,6 @@ int main()
         std::cout << std::endl << std::endl << std::endl << std::endl;
 
         i++;
-
-        system("clear");
     }
     
     return 0;

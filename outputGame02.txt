@@ -31,19 +31,19 @@ PLAYER TURN
 
 Player receives 3 shields
 Player Hp: 100			Enemy Hp: 25
-Player Shield: 6		Enemy Shield: 2
+Player Shield: 3		Enemy Shield: 2
 
 ENEMY TURN
 
 Enemy receives 2 shields
 Player Hp: 100			Enemy Hp: 25
-Player Shield: 6		Enemy Shield: 4
+Player Shield: 3		Enemy Shield: 4
 
 
 
 
 Player Hp: 100			Enemy Hp: 25
-Player Shield: 6		Enemy Shield: 4
+Player Shield: 3		Enemy Shield: 4
 Enemy Next Move: Attack
 
 Press '1' to Attack
@@ -53,19 +53,19 @@ PLAYER TURN
 
 Player receives 3 shields
 Player Hp: 100			Enemy Hp: 25
-Player Shield: 9		Enemy Shield: 4
+Player Shield: 3		Enemy Shield: 4
 
 ENEMY TURN
 
 Player took 4 damage
-Player Hp: 100			Enemy Hp: 25
-Player Shield: 5		Enemy Shield: 4
+Player Hp: 99			Enemy Hp: 25
+Player Shield: 0		Enemy Shield: 4
 
 
 
 
-Player Hp: 100			Enemy Hp: 25
-Player Shield: 5		Enemy Shield: 4
+Player Hp: 99			Enemy Hp: 25
+Player Shield: 0		Enemy Shield: 4
 Enemy Next Move: Defend
 
 Press '1' to Attack

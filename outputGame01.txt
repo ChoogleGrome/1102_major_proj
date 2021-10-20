@@ -7,20 +7,20 @@ Press '2' to Defend
 
 PLAYER TURN
 
-Enemy took 3 damage
-Player Hp: 100			Enemy Hp: 22
+Enemy took 10 damage
+Player Hp: 100			Enemy Hp: 15
 Player Shield: 0		Enemy Shield: 0
 
 ENEMY TURN
 
 Enemy receives 2 shields
-Player Hp: 100			Enemy Hp: 22
+Player Hp: 100			Enemy Hp: 15
 Player Shield: 0		Enemy Shield: 2
 
 
 
 
-Player Hp: 100			Enemy Hp: 22
+Player Hp: 100			Enemy Hp: 15
 Player Shield: 0		Enemy Shield: 2
 Enemy Next Move: Defend
 
