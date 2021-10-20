@@ -75,11 +75,6 @@ float Entity::updateCritChance(float amount){
     return critChance;
 }
 
-// Reduce shield by 35 percent each turn
-int Entity::shieldTurnCorrode(){
-    updateShieldAmount(shields * 0.35);
-    return shields;
-}
 
 // Return damage
 int Entity::damage() {

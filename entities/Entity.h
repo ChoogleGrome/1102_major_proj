@@ -31,9 +31,6 @@ class Entity {
         int updateBaseDmg(int amount);      // Update base damage
         float updateCritChance(float amount);   // Update crit chance
 
-        // Shield Corrode Percentage 0.35 per turn
-        int shieldTurnCorrode();
-
         // Gameplay Functions
         void hurt(int amount);
         virtual void defend() = 0;
